@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fontSize_toolbarTitle">20sp</dimen>
+
+    <dimen name="iconSize_toolbarIcon">24dp</dimen>
+</resources>

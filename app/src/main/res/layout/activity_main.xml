@@ -6,6 +6,32 @@
     android:layout_height="match_parent"
     tools:context="jp.naist.ubi_lab.ikoma4919.MainActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_height="56dp"
+        android:layout_width="fill_parent"
+        android:background="@color/baseColor_primary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/iconSize_toolbarIcon"
+                android:layout_height="@dimen/iconSize_toolbarIcon" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/fontSize_toolbarTitle"
+                android:textColor="@color/fontColor_primary"
+                android:textStyle="bold"
+                android:text="@string/initString_toolbarTitleDate"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
