@@ -2,7 +2,13 @@
     <string name="constString_appName">4919 for Ikoma</string>
     <string name="constString_blackboardTitle">今日のメニュー</string>
     <string name="constString_toolbarTitle_calendar">献立カレンダー</string>
+    <string name="constString_menuName_staple">しゅさい ：</string>
+    <string name="constString_menuName_dishes">おかず　 ：</string>
+    <string name="constString_menuName_drink">のみもの ：</string>
+    <string name="constString_menuName_dessert">デザート ：</string>
 
-    <string name="initString_toolbarTitle">loading</string>
+    <string name="initString_toolbarTitle">読み込み中</string>
+    <string name="initString_blackboardContents">読み込み中</string>
+    <string name="initString_menuName_drink">ぎゅうにゅう</string>
 
 </resources>

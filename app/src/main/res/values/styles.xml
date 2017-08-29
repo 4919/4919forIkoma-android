@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/baseColor_accent</item>
     </style>
 
+    <style name="BlackboardText">
+        <item name="android:textColor">@color/fontColor_white</item>
+        <item name="android:textSize">@dimen/fontSize_blackboardContents</item>
+    </style>
+
 </resources>

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -21,9 +22,19 @@ class MenuDetailsFragment : DialogFragment() {
     private val TAG = "MenuDetailsFragment"
 
     private var database: FirebaseDatabase? = null
+    private var tvMenuNameStaple: TextView? = null
+    private var tvMenuNameDishes: TextView? = null
+    private var tvMenuNameDrink: TextView? = null
+    private var tvMenuNameDessert: TextView? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater!!.inflate(R.layout.fragment_menu_details, container, false)
+
+        tvMenuNameStaple = v.findViewById(R.id.tv_menuName_staple)
+        tvMenuNameDishes = v.findViewById(R.id.tv_menuName_dishes)
+        tvMenuNameDrink = v.findViewById(R.id.tv_menuName_drink)
+        tvMenuNameDessert = v.findViewById(R.id.tv_menuName_dessert)
+
         return v
     }
 
@@ -51,8 +62,15 @@ class MenuDetailsFragment : DialogFragment() {
                     val mainDishName = getMenuItemName(dataSnapshot, "main_dish")
                     val sideDishName = getMenuItemName(dataSnapshot, "side_dish")
                     val soupName = getMenuItemName(dataSnapshot, "soup")
+                    val drinkName = resources.getString(R.string.initString_menuName_drink)
                     val dessertName = getMenuItemName(dataSnapshot, "dessert")
                     Log.d(TAG, "energy: $energy, protein: $protein, staple: $stapleName, mainDish: $mainDishName, sideDish: $sideDishName, soup: $soupName, dessert: $dessertName")
+
+                    tvMenuNameStaple?.text = stapleName
+                    tvMenuNameDishes?.text = "$mainDishName\n$sideDishName\n$soupName"
+                    tvMenuNameDrink?.text = drinkName
+                    tvMenuNameDessert?.text = dessertName
+
                 }
             }
 

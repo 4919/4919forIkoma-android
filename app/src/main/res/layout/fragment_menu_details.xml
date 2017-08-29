@@ -29,10 +29,97 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginHeight_blackboard"
                 android:gravity="center_horizontal"
                 android:text="@string/constString_blackboardTitle"
+                android:textStyle="bold"
                 android:textColor="@color/fontColor_white"
                 android:textSize="@dimen/fontSize_blackboardTitle"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginHeight_blackboard"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/BlackboardText"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/constString_menuName_staple"/>
+
+                <TextView
+                    android:id="@+id/tv_menuName_staple"
+                    style="@style/BlackboardText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/initString_blackboardContents"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginHeight_blackboard"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/BlackboardText"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/constString_menuName_dishes"/>
+
+                <TextView
+                    android:id="@+id/tv_menuName_dishes"
+                    style="@style/BlackboardText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/initString_blackboardContents"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginHeight_blackboard"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/BlackboardText"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/constString_menuName_drink"/>
+
+                <TextView
+                    android:id="@+id/tv_menuName_drink"
+                    style="@style/BlackboardText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/initString_blackboardContents"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginHeight_blackboard"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/BlackboardText"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/constString_menuName_dessert"/>
+
+                <TextView
+                    android:id="@+id/tv_menuName_dessert"
+                    style="@style/BlackboardText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/initString_blackboardContents"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
