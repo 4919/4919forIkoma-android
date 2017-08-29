@@ -8,6 +8,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import jp.naist.ubi_lab.ikoma4919.R
 import jp.naist.ubi_lab.ikoma4919.models.Menu
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -30,11 +31,8 @@ class FireBaseHelper(val context: Context) {
 
     fun getMenuSummary(date: Date) {
 
-//        val simpleDateFormat = SimpleDateFormat("yyMMdd", Locale.JAPAN)
-//        val targetDate = simpleDateFormat.format(date)
-
-        // for debug
-        val targetDate = "170706"
+        val simpleDateFormat = SimpleDateFormat("yyMMdd", Locale.JAPAN)
+        val targetDate = simpleDateFormat.format(date)
 
         database = FirebaseDatabase.getInstance()
         val ref = database?.getReference(targetDate)
