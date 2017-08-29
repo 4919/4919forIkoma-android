@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">4919 for Ikoma</string>
+    <string name="constString_appName">4919 for Ikoma</string>
+    <string name="constString_blackboardTitle">今日のメニュー</string>
 
-    <string name="initString_toolbarTitleDate">loading</string>
-
-    <string name="statusString_retry">Retry</string>
-    <string name="statusString_loading">Loading</string>
+    <string name="initString_toolbarTitle">loading</string>
 
 </resources>

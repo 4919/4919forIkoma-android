@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fontSize_toolbarTitle">20sp</dimen>
+    <dimen name="fontSize_blackboardTitle">20sp</dimen>
 
     <dimen name="marginWidth_toolbar">16dp</dimen>
+    <dimen name="marginHeight_blackboard">8dp</dimen>
+
+    <dimen name="paddingHeight_blackboard">24dp</dimen>
+    <dimen name="paddingWidth_blackboard">20dp</dimen>
 
     <dimen name="iconSize_toolbarIcon">24dp</dimen>
 

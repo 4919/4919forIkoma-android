@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/baseColor_primary"
     tools:context="jp.naist.ubi_lab.ikoma4919.activities.MainActivity">
 
     <android.support.v7.widget.Toolbar
-        android:layout_height="56dp"
+        android:layout_height="?attr/actionBarSize"
         android:layout_width="fill_parent"
         android:background="@color/baseColor_primary">
 
@@ -30,7 +31,7 @@
                 android:textSize="@dimen/fontSize_toolbarTitle"
                 android:textColor="@color/fontColor_primary"
                 android:textStyle="bold"
-                android:text="@string/initString_toolbarTitleDate"/>
+                android:text="@string/initString_toolbarTitle"/>
 
             <ImageView
                 android:id="@+id/iv_toolbar_right"
@@ -46,8 +47,16 @@
 
     <LinearLayout
         android:id="@+id/ll_fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/bgColor_white"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:id="@+id/ll_splash_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:orientation="vertical" />
 
 </android.support.constraint.ConstraintLayout>
