@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import jp.naist.ubi_lab.ikoma4919.R
 
 
@@ -66,6 +63,7 @@ class MenuDetailsFragment : DialogFragment() {
                 if(numChildren > 0) {
                     val energy = dataSnapshot.child("energy")?.getValue(String::class.java)
                     val protein = dataSnapshot.child("protein")?.getValue(String::class.java)
+                    val points = dataSnapshot.child("threePoint")?.value as ArrayList<*>
                     val stapleName = getMenuItemName(dataSnapshot, "staple")
                     val mainDishName = getMenuItemName(dataSnapshot, "main_dish")
                     val sideDishName = getMenuItemName(dataSnapshot, "side_dish")
@@ -79,6 +77,9 @@ class MenuDetailsFragment : DialogFragment() {
                     tvMenuNameDrink?.text = drinkName
                     tvMenuNameDessert?.text = dessertName
                     tvMenuEnergy?.text = "$energy kcal"
+                    tvMenuPoint0?.text = points[0]?.toString()
+                    tvMenuPoint1?.text = points[1]?.toString()
+                    tvMenuPoint2?.text = points[2]?.toString()
 
                 }
             }
