@@ -16,7 +16,7 @@ import jp.naist.ubi_lab.ikoma4919.R
 class CalendarFragment : DialogFragment(), CalendarView.OnDateChangeListener {
     private val TAG = "CalendarFragment"
 
-    var calendarView: CalendarView? = null
+    private var calendarView: CalendarView? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater!!.inflate(R.layout.fragment_calendar, container, false)

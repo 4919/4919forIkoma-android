@@ -1,0 +1,113 @@
+{
+  "project_info": {
+    "project_number": "230117223644",
+    "firebase_url": "https://forikoma.firebaseio.com",
+    "project_id": "forikoma",
+    "storage_bucket": "forikoma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230117223644:android:d18b6905e13a0630",
+        "android_client_info": {
+          "package_name": "jp.naist.ubi.a4919forikoma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230117223644-5dmrib8bsqc6jnbj0hqfjpahvkuvoifq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.naist.ubi.a4919forikoma",
+            "certificate_hash": "23a1cd17bdf8c8a8d8e126ade07f37c587c06540"
+          }
+        },
+        {
+          "client_id": "230117223644-pehfgtsf0no4qv0jk0r116uitbp16m92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTTcW7XjnpULTwWLqz3UghPb5W7y_8KHQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230117223644-lpekgn8cqassuv7e0vgug5g3nkql554p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ZY6FK4H66Q.jp.naist.ubi-lab"
+              }
+            },
+            {
+              "client_id": "230117223644-pehfgtsf0no4qv0jk0r116uitbp16m92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230117223644:android:3c8fde4597c22963",
+        "android_client_info": {
+          "package_name": "jp.naist.ubi_lab.ikoma4919"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230117223644-6opefkpcc2abgvsgfme3m9ldudhg6bkv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.naist.ubi_lab.ikoma4919",
+            "certificate_hash": "6505845318288dc527603a98ea2d099b20becc9b"
+          }
+        },
+        {
+          "client_id": "230117223644-pehfgtsf0no4qv0jk0r116uitbp16m92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTTcW7XjnpULTwWLqz3UghPb5W7y_8KHQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230117223644-lpekgn8cqassuv7e0vgug5g3nkql554p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ZY6FK4H66Q.jp.naist.ubi-lab"
+              }
+            },
+            {
+              "client_id": "230117223644-pehfgtsf0no4qv0jk0r116uitbp16m92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

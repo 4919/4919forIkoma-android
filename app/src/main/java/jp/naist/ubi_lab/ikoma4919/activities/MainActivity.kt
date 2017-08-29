@@ -20,15 +20,15 @@ import java.util.*
  * @author yuki-mat
  */
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    var llFragmentContainer: LinearLayout? = null
+    private var llFragmentContainer: LinearLayout? = null
 
-    var ivToolbarLeft: ImageView? = null
-    var ivToolbarRight: ImageView? = null
+    private var ivToolbarLeft: ImageView? = null
+    private var ivToolbarRight: ImageView? = null
 
-    var tvToolbarTitle: TextView? = null
+    private var tvToolbarTitle: TextView? = null
 
-    var isCalendarShown: Boolean = false
-    var isSettingsShown: Boolean = false
+    private var isCalendarShown: Boolean = false
+    private var isSettingsShown: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

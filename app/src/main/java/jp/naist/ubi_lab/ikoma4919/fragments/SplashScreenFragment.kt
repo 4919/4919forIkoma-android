@@ -20,7 +20,7 @@ import jp.naist.ubi_lab.ikoma4919.R
 class SplashScreenFragment : DialogFragment() {
     private val TAG = "SplashScreenFragment"
 
-    var ivSplashLogo: ImageView? = null
+    private var ivSplashLogo: ImageView? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater!!.inflate(R.layout.fragment_splash_screen, container, false)
