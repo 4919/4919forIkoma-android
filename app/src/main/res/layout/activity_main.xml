@@ -9,12 +9,12 @@
     <android.support.v7.widget.Toolbar
         android:layout_height="?attr/actionBarSize"
         android:layout_width="fill_parent"
+        android:paddingRight="@dimen/marginWidth_toolbar"
         android:background="@color/baseColor_primary">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingRight="@dimen/marginWidth_toolbar">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/iv_toolbar_left"
