@@ -2,23 +2,24 @@ package jp.naist.ubi_lab.ikoma4919.fragments
 
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.google.firebase.database.*
 import jp.naist.ubi_lab.ikoma4919.R
+import jp.naist.ubi_lab.ikoma4919.models.Menu
+import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
+import java.util.*
 
 
 /**
  * １日の詳細メニュー の Fragment
  * @author yuki-mat
  */
-class MenuDetailsFragment : DialogFragment() {
+class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListener {
     private val TAG = "MenuDetailsFragment"
 
-    private var database: FirebaseDatabase? = null
+    private var fireBaseHelper: FireBaseHelper? = null
     private var tvMenuNameStaple: TextView? = null
     private var tvMenuNameDishes: TextView? = null
     private var tvMenuNameDrink: TextView? = null
@@ -30,6 +31,9 @@ class MenuDetailsFragment : DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater!!.inflate(R.layout.fragment_menu_details, container, false)
+
+        fireBaseHelper = FireBaseHelper(context)
+        fireBaseHelper?.setFireBaseEventListener(this)
 
         tvMenuNameStaple = v.findViewById(R.id.tv_menuName_staple)
         tvMenuNameDishes = v.findViewById(R.id.tv_menuName_dishes)
@@ -46,46 +50,7 @@ class MenuDetailsFragment : DialogFragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val simpleDateFormat = SimpleDateFormat("yyMMdd", Locale.JAPAN)
-//        val targetDate = simpleDateFormat.format(Date())
-
-        // for debug
-        val targetDate = "170706"
-
-        database = FirebaseDatabase.getInstance()
-        val ref = database?.getReference(targetDate)
-        Log.d(TAG, "ref: $ref")
-
-        ref?.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val numChildren = dataSnapshot.childrenCount
-                Log.d(TAG, "numChildren: $numChildren")
-                if(numChildren > 0) {
-                    val energy = dataSnapshot.child("energy")?.getValue(String::class.java)
-                    val protein = dataSnapshot.child("protein")?.getValue(String::class.java)
-                    val points = dataSnapshot.child("threePoint")?.value as ArrayList<*>
-                    val stapleName = getMenuItemName(dataSnapshot, "staple")
-                    val mainDishName = getMenuItemName(dataSnapshot, "main_dish")
-                    val sideDishName = getMenuItemName(dataSnapshot, "side_dish")
-                    val soupName = getMenuItemName(dataSnapshot, "soup")
-                    val drinkName = resources.getString(R.string.initString_menuName_drink)
-                    val dessertName = getMenuItemName(dataSnapshot, "dessert")
-                    Log.d(TAG, "energy: $energy, protein: $protein, staple: $stapleName, mainDish: $mainDishName, sideDish: $sideDishName, soup: $soupName, dessert: $dessertName")
-
-                    tvMenuNameStaple?.text = stapleName
-                    tvMenuNameDishes?.text = "$mainDishName\n$sideDishName\n$soupName"
-                    tvMenuNameDrink?.text = drinkName
-                    tvMenuNameDessert?.text = dessertName
-                    tvMenuEnergy?.text = "$energy kcal"
-                    tvMenuPoint0?.text = points[0]?.toString()
-                    tvMenuPoint1?.text = points[1]?.toString()
-                    tvMenuPoint2?.text = points[2]?.toString()
-
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {}
-        })
+        fireBaseHelper?.getMenuSummary(Date())
 
     }
 
@@ -93,7 +58,16 @@ class MenuDetailsFragment : DialogFragment() {
         super.onDestroy()
     }
 
-    private fun getMenuItemName(dataSnapshot: DataSnapshot, category: String): String? =
-            dataSnapshot.child("menu_list")?.child(category)?.child("name")?.getValue(String::class.java)
+    override fun onSummaryFetched(menu: Menu) {
+        tvMenuNameStaple?.text = menu.stapleName
+        tvMenuNameDishes?.text = "${menu.mainDishName}\n${menu.sideDishName}\n${menu.soupName}"
+        tvMenuNameDrink?.text = menu.drinkName
+        tvMenuNameDessert?.text = menu.dessertName
+        tvMenuEnergy?.text = "${menu.energy} kcal"
+        tvMenuPoint0?.text = menu.point0
+        tvMenuPoint1?.text = menu.point1
+        tvMenuPoint2?.text = menu.point2
+    }
+
 
 }
