@@ -3,6 +3,7 @@ package jp.naist.ubi_lab.ikoma4919.activities
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.content.res.ResourcesCompat
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     var ivToolbarLeft: ImageView? = null
     var ivToolbarRight: ImageView? = null
+
+    var isCalendarShown: Boolean = false
+    var isSettingsShown: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +51,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when(view?.id) {
             R.id.iv_toolbar_left -> {
-                showCalendar()
+                if(isCalendarShown) {
+                    showMenuDetailFragment()
+                } else {
+                    showCalendarFragment()
+                }
             }
             R.id.iv_toolbar_right -> {
 
@@ -63,21 +71,38 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 .commit()
 
         Handler().postDelayed({
-            supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.ll_fragment_container, MenuDetailsFragment())
-                    .commit()
+            showMenuDetailFragment()
         }, 200)
 
     }
 
-    private fun showCalendar() {
+    private fun showCalendarFragment() {
+
+        ivToolbarLeft?.setImageDrawable(ResourcesCompat.getDrawable(resources, R.mipmap.ic_back, null))
 
         supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .replace(R.id.ll_fragment_container, CalendarFragment())
                 .commit()
+
+        isCalendarShown = true
+        isSettingsShown = false
+
+    }
+
+    private fun showMenuDetailFragment() {
+
+        ivToolbarLeft?.setImageDrawable(ResourcesCompat.getDrawable(resources, R.mipmap.ic_calendar, null))
+
+        supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_right, R.anim.slide_out_left)
+                .replace(R.id.ll_fragment_container, MenuDetailsFragment())
+                .commit()
+
+        isCalendarShown = false
+        isSettingsShown = false
 
     }
 
