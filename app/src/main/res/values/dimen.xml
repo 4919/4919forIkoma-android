@@ -3,6 +3,7 @@
     <dimen name="fontSize_toolbarTitle">20sp</dimen>
     <dimen name="fontSize_blackboardTitle">20sp</dimen>
     <dimen name="fontSize_blackboardContents">16sp</dimen>
+    <dimen name="fontSize_blackboardFooter">13sp</dimen>
 
     <dimen name="marginWidth_toolbar">16dp</dimen>
     <dimen name="marginHeight_blackboard">8dp</dimen>

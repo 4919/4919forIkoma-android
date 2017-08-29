@@ -5,12 +5,17 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/baseColor_primary</item>
         <item name="colorPrimaryDark">@color/baseColor_primaryDark</item>
-        <item name="colorAccent">@color/baseColor_accent</item>
+        <item name="colorAccent">@color/baseColor_warning</item>
     </style>
 
-    <style name="BlackboardText">
+    <style name="BlackboardContentsText">
         <item name="android:textColor">@color/fontColor_white</item>
         <item name="android:textSize">@dimen/fontSize_blackboardContents</item>
+    </style>
+
+    <style name="BlackboardFooterText">
+        <item name="android:textColor">@color/fontColor_white</item>
+        <item name="android:textSize">@dimen/fontSize_blackboardFooter</item>
     </style>
 
 </resources>

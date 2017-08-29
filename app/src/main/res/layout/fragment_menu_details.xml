@@ -43,14 +43,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/BlackboardText"
+                    style="@style/BlackboardContentsText"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="@string/constString_menuName_staple"/>
 
                 <TextView
                     android:id="@+id/tv_menuName_staple"
-                    style="@style/BlackboardText"
+                    style="@style/BlackboardContentsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/initString_blackboardContents"/>
@@ -64,14 +64,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/BlackboardText"
+                    style="@style/BlackboardContentsText"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="@string/constString_menuName_dishes"/>
 
                 <TextView
                     android:id="@+id/tv_menuName_dishes"
-                    style="@style/BlackboardText"
+                    style="@style/BlackboardContentsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/initString_blackboardContents"/>
@@ -85,14 +85,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/BlackboardText"
+                    style="@style/BlackboardContentsText"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="@string/constString_menuName_drink"/>
 
                 <TextView
                     android:id="@+id/tv_menuName_drink"
-                    style="@style/BlackboardText"
+                    style="@style/BlackboardContentsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/initString_blackboardContents"/>
@@ -106,17 +106,87 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/BlackboardText"
+                    style="@style/BlackboardContentsText"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="@string/constString_menuName_dessert"/>
 
                 <TextView
                     android:id="@+id/tv_menuName_dessert"
-                    style="@style/BlackboardText"
+                    style="@style/BlackboardContentsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/initString_blackboardContents"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginHeight_blackboard"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/BlackboardFooterText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/constString_menuEnergy"/>
+
+                <TextView
+                    android:id="@+id/tv_menuEnergy"
+                    style="@style/BlackboardFooterText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/initString_blackboardContents"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="@string/constString_menuPointCircle"
+                    android:textSize="@dimen/fontSize_blackboardContents"
+                    android:textColor="@color/baseColor_warning" />
+
+                <TextView
+                    android:id="@+id/tv_menuPoint_0"
+                    style="@style/BlackboardFooterText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/initString_blackboardShortContents"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/constString_menuPointCircle"
+                    android:textSize="@dimen/fontSize_blackboardContents"
+                    android:textColor="@color/baseColor_success" />
+
+                <TextView
+                    android:id="@+id/tv_menuPoint_1"
+                    style="@style/BlackboardFooterText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/initString_blackboardShortContents"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/constString_menuPointCircle"
+                    android:textSize="@dimen/fontSize_blackboardContents"
+                    android:textColor="@color/baseColor_primary" />
+
+                <TextView
+                    android:id="@+id/tv_menuPoint_2"
+                    style="@style/BlackboardFooterText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/initString_blackboardShortContents"/>
 
             </LinearLayout>
 
