@@ -51,13 +51,13 @@ class FireBaseHelper(val context: Context) {
                     menu.drinkName = context.resources.getString(R.string.initString_menuName_drink)
                     menu.dessertName = getMenuItemName(dataSnapshot, "dessert")
 
-                    menu.energy = dataSnapshot.child("energy")?.getValue(String::class.java)
-                    menu.protein = dataSnapshot.child("protein")?.getValue(String::class.java)
+                    menu.energy = dataSnapshot.child("energy")?.getValue(String::class.java)?: "-"
+                    menu.protein = dataSnapshot.child("protein")?.getValue(String::class.java)?: "-"
 
                     val points = dataSnapshot.child("threePoint")?.value as ArrayList<*>
-                    menu.point0 = points[0]?.toString()
-                    menu.point1 = points[1]?.toString()
-                    menu.point2 = points[2]?.toString()
+                    menu.point0 = points[0]?.toString()?: "-"
+                    menu.point1 = points[1]?.toString()?: "-"
+                    menu.point2 = points[2]?.toString()?: "-"
 
                     Log.d(TAG, menu.toString())
 
@@ -72,6 +72,6 @@ class FireBaseHelper(val context: Context) {
     }
 
     private fun getMenuItemName(dataSnapshot: DataSnapshot, category: String): String? =
-            dataSnapshot.child("menu_list")?.child(category)?.child("name")?.getValue(String::class.java)
+            dataSnapshot.child("menu_list")?.child(category)?.child("name")?.getValue(String::class.java) ?: "-"
 
 }

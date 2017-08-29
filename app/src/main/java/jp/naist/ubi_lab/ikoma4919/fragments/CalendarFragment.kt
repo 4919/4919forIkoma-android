@@ -1,17 +1,20 @@
 package jp.naist.ubi_lab.ikoma4919.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
+import android.support.v4.content.res.ResourcesCompat
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CalendarView
+import android.widget.*
 import jp.naist.ubi_lab.ikoma4919.R
 import jp.naist.ubi_lab.ikoma4919.models.Menu
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 /**
  * カレンダー の Fragment
@@ -22,6 +25,12 @@ class CalendarFragment : DialogFragment(), CalendarView.OnDateChangeListener, Fi
 
     private var fireBaseHelper: FireBaseHelper? = null
     private var calendarView: CalendarView? = null
+
+    private var tvMenuNameStaple: TextView? = null
+    private var tvMenuNameDishes: TextView? = null
+    private var tvMenuNameDrink: TextView? = null
+    private var tvMenuNameDessert: TextView? = null
+
     private var dateStrParser: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.JAPAN)
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,6 +41,11 @@ class CalendarFragment : DialogFragment(), CalendarView.OnDateChangeListener, Fi
 
         calendarView = v.findViewById(R.id.calendar_view)
         calendarView?.setOnDateChangeListener(this)
+
+        tvMenuNameStaple = v.findViewById(R.id.tv_menuName_staple)
+        tvMenuNameDishes = v.findViewById(R.id.tv_menuName_dishes)
+        tvMenuNameDrink = v.findViewById(R.id.tv_menuName_drink)
+        tvMenuNameDessert = v.findViewById(R.id.tv_menuName_dessert)
 
         return v
     }
@@ -51,6 +65,12 @@ class CalendarFragment : DialogFragment(), CalendarView.OnDateChangeListener, Fi
 
     override fun onSummaryFetched(menu: Menu) {
         Log.d(TAG, menu.mainDishName)
+
+        tvMenuNameStaple?.text = menu.stapleName
+        tvMenuNameDishes?.text = "${menu.mainDishName}\n${menu.sideDishName}\n${menu.soupName}"
+        tvMenuNameDrink?.text = menu.drinkName
+        tvMenuNameDessert?.text = menu.dessertName
+
     }
 
 }

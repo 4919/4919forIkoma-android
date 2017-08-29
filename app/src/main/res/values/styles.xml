@@ -18,4 +18,9 @@
         <item name="android:textSize">@dimen/fontSize_blackboardFooter</item>
     </style>
 
+    <style name="CalendarContentsText">
+        <item name="android:textColor">@color/fontColor_gray</item>
+        <item name="android:textSize">@dimen/fontSize_blackboardContents</item>
+    </style>
+
 </resources>

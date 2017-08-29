@@ -5,15 +5,15 @@ package jp.naist.ubi_lab.ikoma4919.models
  * @author yuki-mat
  */
 object Menu {
-    var stapleName: String? = null
-    var mainDishName: String? = null
-    var sideDishName: String? = null
-    var soupName: String? = null
-    var drinkName: String? = null
-    var dessertName: String? = null
-    var energy: String? = null
-    var protein: String? = null
-    var point0: String? = null
-    var point1: String? = null
-    var point2: String? = null
+    var stapleName: String? = ""
+    var mainDishName: String? = ""
+    var sideDishName: String? = ""
+    var soupName: String? = ""
+    var drinkName: String? = ""
+    var dessertName: String? = ""
+    var energy: String? = ""
+    var protein: String? = ""
+    var point0: String? = ""
+    var point1: String? = ""
+    var point2: String? = ""
 }
