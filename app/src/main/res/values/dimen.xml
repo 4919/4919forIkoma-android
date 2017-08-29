@@ -9,7 +9,7 @@
     <dimen name="marginHeight_blackboard">8dp</dimen>
 
     <dimen name="paddingHeight_blackboard">24dp</dimen>
-    <dimen name="paddingWidth_blackboard">30dp</dimen>
+    <dimen name="paddingWidth_blackboard">20dp</dimen>
 
     <dimen name="paddingHeight_calendar">12dp</dimen>
     <dimen name="paddingWidth_calendar">12dp</dimen>

@@ -7,8 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_height="350dp"
         android:layout_marginTop="10dp">
 
         <RelativeLayout
@@ -30,27 +29,23 @@
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:paddingTop="@dimen/paddingHeight_calendar"
-            android:paddingBottom="0dp"
-            android:paddingLeft="@dimen/paddingWidth_calendar"
-            android:paddingRight="@dimen/paddingWidth_calendar"
-            android:orientation="vertical">
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/paddingHeight_calendar"
+            android:scaleX="0.9"
+            android:scaleY="0.9">
 
             <CalendarView
                 android:id="@+id/calendar_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:isScrollContainer="true"
-                android:scaleX="0.9"
-                android:scaleY="0.9" >
-
+                android:layout_height="match_parent"
+                android:isScrollContainer="true" >
             </CalendarView>
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -63,8 +58,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
