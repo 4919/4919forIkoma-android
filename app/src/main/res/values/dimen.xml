@@ -10,7 +10,7 @@
     <dimen name="paddingWidth_blackboard">20dp</dimen>
 
     <dimen name="paddingHeight_calendar">12dp</dimen>
-    <dimen name="paddingWidth_calendar">20dp</dimen>
+    <dimen name="paddingWidth_calendar">12dp</dimen>
 
     <dimen name="iconSize_toolbarIcon">24dp</dimen>
 
