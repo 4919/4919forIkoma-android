@@ -63,10 +63,14 @@ class FireBaseHelper(val context: Context) {
 
                     listener?.onSummaryFetched(menu)
 
+                } else {
+                    listener?.onSummaryFetched(Menu)
                 }
             }
 
-            override fun onCancelled(databaseError: DatabaseError) {}
+            override fun onCancelled(databaseError: DatabaseError) {
+                listener?.onSummaryFetched(Menu)
+            }
         })
 
     }
