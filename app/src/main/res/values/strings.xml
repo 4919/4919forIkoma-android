@@ -3,4 +3,7 @@
 
     <string name="initString_toolbarTitleDate">loading</string>
 
+    <string name="statusString_retry">Retry</string>
+    <string name="statusString_loading">Loading</string>
+
 </resources>

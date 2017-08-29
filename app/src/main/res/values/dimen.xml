@@ -2,6 +2,10 @@
 <resources>
     <dimen name="fontSize_toolbarTitle">20sp</dimen>
 
-    <dimen name="margin_toolbarRight">16dp</dimen>
+    <dimen name="marginWidth_toolbar">16dp</dimen>
+
     <dimen name="iconSize_toolbarIcon">24dp</dimen>
+
+    <dimen name="imgSize_splashLogo">120dp</dimen>
+
 </resources>
