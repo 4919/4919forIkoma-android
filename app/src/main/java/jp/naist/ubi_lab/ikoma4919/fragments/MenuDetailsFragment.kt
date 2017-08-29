@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
-import jp.naist.ubi_lab.ikoma4919.models.Menu
+import jp.naist.ubi_lab.ikoma4919.models.MenuModel
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.util.*
 
@@ -58,7 +58,7 @@ class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListen
         super.onDestroy()
     }
 
-    override fun onSummaryFetched(menu: Menu) {
+    override fun onSummaryFetched(menu: MenuModel) {
         tvMenuNameStaple?.text = menu.stapleName
         tvMenuNameDishes?.text = "${menu.mainDishName}\n${menu.sideDishName}\n${menu.soupName}"
         tvMenuNameDrink?.text = menu.drinkName

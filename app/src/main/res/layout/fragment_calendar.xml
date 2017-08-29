@@ -111,7 +111,7 @@
                         android:scaleType="fitCenter"/>
 
                     <TextView
-                        android:id="@+id/tv_menuName_staple"
+                        android:id="@+id/tv_calendar_menuName_staple"
                         style="@style/CalendarContentsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
                         android:scaleType="fitCenter"/>
 
                     <TextView
-                        android:id="@+id/tv_menuName_dishes"
+                        android:id="@+id/tv_calendar_menuName_dishes"
                         style="@style/CalendarContentsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
                         android:scaleType="fitCenter"/>
 
                     <TextView
-                        android:id="@+id/tv_menuName_drink"
+                        android:id="@+id/tv_calendar_menuName_drink"
                         style="@style/CalendarContentsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
                         android:scaleType="fitCenter"/>
 
                     <TextView
-                        android:id="@+id/tv_menuName_dessert"
+                        android:id="@+id/tv_calendar_menuName_dessert"
                         style="@style/CalendarContentsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
