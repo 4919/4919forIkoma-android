@@ -1,6 +1,7 @@
 <resources>
     <string name="constString_appName">4919 for Ikoma</string>
     <string name="constString_blackboardTitle">今日のメニュー</string>
+    <string name="constString_toolbarTitle_calendar">献立カレンダー</string>
 
     <string name="initString_toolbarTitle">loading</string>
 

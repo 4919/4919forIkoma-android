@@ -7,10 +7,13 @@ import android.support.v4.content.res.ResourcesCompat
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
 import jp.naist.ubi_lab.ikoma4919.fragments.CalendarFragment
 import jp.naist.ubi_lab.ikoma4919.fragments.MenuDetailsFragment
 import jp.naist.ubi_lab.ikoma4919.fragments.SplashScreenFragment
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * メインの Activity
@@ -21,6 +24,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     var ivToolbarLeft: ImageView? = null
     var ivToolbarRight: ImageView? = null
+
+    var tvToolbarTitle: TextView? = null
 
     var isCalendarShown: Boolean = false
     var isSettingsShown: Boolean = false
@@ -42,9 +47,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         llFragmentContainer = findViewById(R.id.ll_fragment_container) as LinearLayout
 
+        tvToolbarTitle = findViewById(R.id.tv_toolbar_title) as TextView
+
         ivToolbarLeft = findViewById(R.id.iv_toolbar_left) as ImageView
         ivToolbarLeft?.setOnClickListener(this)
         ivToolbarRight = findViewById(R.id.iv_toolbar_right) as ImageView
+        ivToolbarRight?.setOnClickListener(this)
 
     }
 
@@ -78,6 +86,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun showCalendarFragment() {
 
+        tvToolbarTitle?.text = resources.getString(R.string.constString_toolbarTitle_calendar)
         ivToolbarLeft?.setImageDrawable(ResourcesCompat.getDrawable(resources, R.mipmap.ic_back, null))
 
         supportFragmentManager
@@ -93,6 +102,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun showMenuDetailFragment() {
 
+        val simpleDateFormat = SimpleDateFormat("MM月dd日（E）", Locale.JAPAN)
+
+        tvToolbarTitle?.text = simpleDateFormat.format(Date())
         ivToolbarLeft?.setImageDrawable(ResourcesCompat.getDrawable(resources, R.mipmap.ic_calendar, null))
 
         supportFragmentManager
