@@ -20,18 +20,18 @@ def resize_imgs(img_filename):
     try:
         img_xxxhdmi = Image.open(base_dir + img_filename, 'r')
         img_w, img_h = img_xxxhdmi.size
-        print 'resize img : ' + img_filename + ' __ ' + str(img_w) + ',' + str(img_h)
+        print('resize img : ' + img_filename + ' __ ' + str(img_w) + ',' + str(img_h))
         for img_type in img_types:
             img_xxxhdmi.thumbnail((img_w * img_type[0], img_h * img_type[0]), Image.ANTIALIAS)
             img_xxxhdmi.save(img_type[1] + img_filename, 'PNG', quality=100, optimize=True)
 
     except IOError:
-        print 'delete img : ' + img_filename
+        print('delete img : ' + img_filename)
         for img_type in img_types:
             try:
                 os.remove(img_type[1] + img_filename)
             except:
-                print "File not found : " + img_filename
+                print("File not found : " + img_filename)
 
 
 def match(path):
