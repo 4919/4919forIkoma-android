@@ -60,6 +60,34 @@ class FireBaseHelper(val context: Context) {
                     menu?.point1 = points[1]?.toString()?: "-"
                     menu?.point2 = points[2]?.toString()?: "-"
 
+                    menu?.staplePic = when {
+                            check(menu?.stapleName, "ぱん|パン") -> { R.mipmap.pic_staple_bread }
+                            check(menu?.stapleName, "ナン") -> { R.mipmap.pic_staple_nan }
+                            else -> { R.mipmap.pic_staple_rice }
+                        }
+                    menu?.mainDishPic = when {
+                            check(menu?.mainDishName, "にく|肉|チキン|ハンバーグ") -> { R.mipmap.pic_main_dish_niku }
+                            check(menu?.mainDishName, "フライ|てんぷら") -> { R.mipmap.pic_main_dish_fliedfish }
+                            check(menu?.mainDishName, "コロッケ") -> { R.mipmap.pic_side_dish_korokke }
+                            check(menu?.mainDishName, "いため") -> { R.mipmap.pic_main_dish_yasai }
+                            else -> { R.mipmap.pic_main_dish_bakedfish }
+                        }
+                    menu?.sideDishPic = when {
+                            check(menu?.sideDishName, "コロッケ") -> { R.mipmap.pic_side_dish_korokke }
+                            else -> { R.mipmap.pic_side_dish_salad }
+                        }
+                    menu?.soupPic = when {
+                            check(menu?.soupName, "うどん|メン|めん") -> { R.mipmap.pic_soup_udon }
+                            check(menu?.soupName, "みそ") -> { R.mipmap.pic_soup_miso }
+                            else -> { R.mipmap.pic_soup_clear }
+                        }
+                    menu?.dessertPic = when {
+                            check(menu?.dessertName, "ゼリー|ヨーグルト") -> { R.mipmap.pic_dessert_jelly }
+                            else -> { R.mipmap.pic_dessert_orange }
+                        }
+                    menu?.drinkPic = R.mipmap.pic_drink_milk
+
+
                     Log.d(TAG, menu?.toString())
 
                     listener?.onSummaryFetched(menu?: MenuModel(date))
@@ -75,6 +103,8 @@ class FireBaseHelper(val context: Context) {
         })
 
     }
+
+    private fun check(name: String?, regexStr: String): Boolean = name?.contains(regexStr.toRegex())?: false
 
     private fun getMenuItemName(dataSnapshot: DataSnapshot, category: String): String? =
             dataSnapshot.child("menu_list")?.child(category)?.child("name")?.getValue(String::class.java) ?: "-"
