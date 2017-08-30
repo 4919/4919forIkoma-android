@@ -58,7 +58,7 @@ class CalendarFragment : DialogFragment(), CalendarView.OnDateChangeListener, Fi
     }
 
     override fun onSelectedDayChange(view: CalendarView?, year: Int, month: Int, day: Int) {
-        Log.d(TAG, "onSelectedDayChange : $year/${month+1}/$day")
+//        Log.d(TAG, "onSelectedDayChange : $year/${month+1}/$day")
         fireBaseHelper?.getMenuSummary(dateStrParser.parse("$year-${month+1}-$day"))
     }
 

@@ -39,7 +39,7 @@ class FireBaseHelper(val context: Context) {
         val ref = database?.getReference(targetDate)
 
         menu = MenuModel(date)
-        Log.d(TAG, menu?.date.toString())
+//        Log.d(TAG, menu?.date.toString())
 
         ref?.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -88,7 +88,7 @@ class FireBaseHelper(val context: Context) {
                     menu?.drinkPic = R.mipmap.pic_drink_milk
 
 
-                    Log.d(TAG, menu?.toString())
+//                    Log.d(TAG, menu?.toString())
 
                     listener?.onSummaryFetched(menu?: MenuModel(date))
 
