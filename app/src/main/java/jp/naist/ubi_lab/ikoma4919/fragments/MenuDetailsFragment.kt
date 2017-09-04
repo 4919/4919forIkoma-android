@@ -1,7 +1,8 @@
 package jp.naist.ubi_lab.ikoma4919.fragments
 
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +19,7 @@ import java.util.*
  * １日の詳細メニュー の Fragment
  * @author yuki-mat
  */
-class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListener {
+class MenuDetailsFragment : Fragment(), FireBaseHelper.FireBaseEventListener, View.OnClickListener {
     private val TAG = "MenuDetailsFragment"
 
     private var fireBaseHelper: FireBaseHelper? = null
@@ -47,22 +48,34 @@ class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListen
         fireBaseHelper?.setFireBaseEventListener(this)
 
         tvMenuNameStaple = v.findViewById(R.id.tv_menuName_staple)
+        tvMenuNameStaple?.setOnClickListener(this)
         tvMenuNameMainDish = v.findViewById(R.id.tv_menuName_mainDish)
+        tvMenuNameMainDish?.setOnClickListener(this)
         tvMenuNameSideDish = v.findViewById(R.id.tv_menuName_sideDish)
+        tvMenuNameSideDish?.setOnClickListener(this)
         tvMenuNameSoup = v.findViewById(R.id.tv_menuName_soup)
+        tvMenuNameSoup?.setOnClickListener(this)
         tvMenuNameDrink = v.findViewById(R.id.tv_menuName_drink)
+        tvMenuNameDrink?.setOnClickListener(this)
         tvMenuNameDessert = v.findViewById(R.id.tv_menuName_dessert)
+        tvMenuNameDessert?.setOnClickListener(this)
         tvMenuEnergy = v.findViewById(R.id.tv_menuEnergy)
         tvMenuPoint0 = v.findViewById(R.id.tv_menuPoint_0)
         tvMenuPoint1 = v.findViewById(R.id.tv_menuPoint_1)
         tvMenuPoint2 = v.findViewById(R.id.tv_menuPoint_2)
 
         ivPicStaple = v.findViewById(R.id.iv_pic_staple)
+        ivPicStaple?.setOnClickListener(this)
         ivPicMainDish = v.findViewById(R.id.iv_pic_main_dish)
+        ivPicMainDish?.setOnClickListener(this)
         ivPicSideDish = v.findViewById(R.id.iv_pic_side_dish)
+        ivPicSideDish?.setOnClickListener(this)
         ivPicSoup = v.findViewById(R.id.iv_pic_soup)
+        ivPicSoup?.setOnClickListener(this)
         ivPicDrink = v.findViewById(R.id.iv_pic_drink)
+        ivPicDrink?.setOnClickListener(this)
         ivPicDessert = v.findViewById(R.id.iv_pic_dessert)
+        ivPicDessert?.setOnClickListener(this)
 
         return v
     }
@@ -98,5 +111,29 @@ class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListen
         ivPicDessert?.setImageDrawable(ResourcesCompat.getDrawable(resources, menu.dessertPic, null))
     }
 
+    override fun onClick(v: View?) {
+        when(v?.id) {
+            R.id.iv_pic_staple, R.id.tv_menuName_staple -> openDetailDialog(MenuCategory.STAPLE)
+            R.id.iv_pic_main_dish, R.id.tv_menuName_mainDish -> openDetailDialog(MenuCategory.MAIN_DISH)
+            R.id.iv_pic_side_dish, R.id.tv_menuName_sideDish -> openDetailDialog(MenuCategory.SIDE_DISH)
+            R.id.iv_pic_soup, R.id.tv_menuName_soup -> openDetailDialog(MenuCategory.SOUP)
+            R.id.iv_pic_dessert, R.id.tv_menuName_dessert -> openDetailDialog(MenuCategory.DESSERT)
+            R.id.iv_pic_drink, R.id.tv_menuName_drink -> openDetailDialog(MenuCategory.DRINK)
+        }
+    }
+
+    enum class MenuCategory {
+        STAPLE, MAIN_DISH, SIDE_DISH, SOUP, DESSERT, DRINK
+    }
+
+    private fun openDetailDialog(category: MenuCategory) {
+
+        activity.supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out)
+                .replace(R.id.ll_dialog_container, MenuDetailDialogFragment())
+                .commit()
+
+    }
 
 }

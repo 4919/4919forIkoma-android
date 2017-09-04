@@ -7,6 +7,7 @@
 
     <dimen name="marginWidth_toolbar">16dp</dimen>
     <dimen name="marginHeight_blackboard">8dp</dimen>
+    <dimen name="marginWidth_clipboard">12dp</dimen>
 
     <dimen name="paddingHeight_blackboard">24dp</dimen>
     <dimen name="paddingWidth_blackboard">20dp</dimen>

@@ -1,11 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:orientation="vertical"
     android:background="@mipmap/bg_room" >
 
     <RelativeLayout
+        android:id="@+id/rl_blackboard"
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:layout_marginTop="@dimen/marginHeight_blackboard">
@@ -217,8 +217,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_blackboard">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -337,5 +337,11 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_dialog_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/marginWidth_clipboard"
+        android:orientation="vertical" />
 
-</LinearLayout>
+</RelativeLayout>
