@@ -68,12 +68,33 @@
                     android:layout_height="wrap_content"
                     android:text="@string/constString_menuName_dishes"/>
 
-                <TextView
-                    android:id="@+id/tv_menuName_dishes"
-                    style="@style/BlackboardContentsText"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/initString_blackboardContents"/>
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_menuName_mainDish"
+                        style="@style/BlackboardContentsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/initString_blackboardContents"/>
+
+                    <TextView
+                        android:id="@+id/tv_menuName_sideDish"
+                        style="@style/BlackboardContentsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/initString_blackboardContents"/>
+
+                    <TextView
+                        android:id="@+id/tv_menuName_soup"
+                        style="@style/BlackboardContentsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/initString_blackboardContents"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 

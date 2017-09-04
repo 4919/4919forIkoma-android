@@ -23,7 +23,9 @@ class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListen
 
     private var fireBaseHelper: FireBaseHelper? = null
     private var tvMenuNameStaple: TextView? = null
-    private var tvMenuNameDishes: TextView? = null
+    private var tvMenuNameMainDish: TextView? = null
+    private var tvMenuNameSideDish: TextView? = null
+    private var tvMenuNameSoup: TextView? = null
     private var tvMenuNameDrink: TextView? = null
     private var tvMenuNameDessert: TextView? = null
     private var tvMenuEnergy: TextView? = null
@@ -31,12 +33,12 @@ class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListen
     private var tvMenuPoint1: TextView? = null
     private var tvMenuPoint2: TextView? = null
 
-    private var ivPicDrink: ImageView? = null
-    private var ivPicDessert: ImageView? = null
-    private var ivPicMainDish: ImageView? = null
     private var ivPicStaple: ImageView? = null
+    private var ivPicMainDish: ImageView? = null
     private var ivPicSideDish: ImageView? = null
     private var ivPicSoup: ImageView? = null
+    private var ivPicDrink: ImageView? = null
+    private var ivPicDessert: ImageView? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater!!.inflate(R.layout.fragment_menu_details, container, false)
@@ -45,7 +47,9 @@ class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListen
         fireBaseHelper?.setFireBaseEventListener(this)
 
         tvMenuNameStaple = v.findViewById(R.id.tv_menuName_staple)
-        tvMenuNameDishes = v.findViewById(R.id.tv_menuName_dishes)
+        tvMenuNameMainDish = v.findViewById(R.id.tv_menuName_mainDish)
+        tvMenuNameSideDish = v.findViewById(R.id.tv_menuName_sideDish)
+        tvMenuNameSoup = v.findViewById(R.id.tv_menuName_soup)
         tvMenuNameDrink = v.findViewById(R.id.tv_menuName_drink)
         tvMenuNameDessert = v.findViewById(R.id.tv_menuName_dessert)
         tvMenuEnergy = v.findViewById(R.id.tv_menuEnergy)
@@ -53,12 +57,12 @@ class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListen
         tvMenuPoint1 = v.findViewById(R.id.tv_menuPoint_1)
         tvMenuPoint2 = v.findViewById(R.id.tv_menuPoint_2)
 
-        ivPicDrink = v.findViewById(R.id.iv_pic_drink)
-        ivPicDessert = v.findViewById(R.id.iv_pic_dessert)
-        ivPicMainDish = v.findViewById(R.id.iv_pic_main_dish)
         ivPicStaple = v.findViewById(R.id.iv_pic_staple)
+        ivPicMainDish = v.findViewById(R.id.iv_pic_main_dish)
         ivPicSideDish = v.findViewById(R.id.iv_pic_side_dish)
         ivPicSoup = v.findViewById(R.id.iv_pic_soup)
+        ivPicDrink = v.findViewById(R.id.iv_pic_drink)
+        ivPicDessert = v.findViewById(R.id.iv_pic_dessert)
 
         return v
     }
@@ -76,7 +80,9 @@ class MenuDetailsFragment : DialogFragment(), FireBaseHelper.FireBaseEventListen
 
     override fun onSummaryFetched(menu: MenuModel) {
         tvMenuNameStaple?.text = menu.stapleName
-        tvMenuNameDishes?.text = "${menu.mainDishName}\n${menu.sideDishName}\n${menu.soupName}"
+        tvMenuNameMainDish?.text = menu.mainDishName
+        tvMenuNameSideDish?.text = menu.sideDishName
+        tvMenuNameSoup?.text = menu.soupName
         tvMenuNameDrink?.text = menu.drinkName
         tvMenuNameDessert?.text = menu.dessertName
         tvMenuEnergy?.text = "${menu.energy} kcal"
