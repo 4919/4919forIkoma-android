@@ -14,6 +14,8 @@
     <string name="initString_blackboardShortContents">-</string>
     <string name="initString_menuName_drink">ぎゅうにゅう</string>
 
+    <string name="regexString_menu_bread">パン|ぱん</string>
+    <string name="regexString_menu_nan">ナン</string>
     <string name="regexString_menu_meat">にく|肉|チキン|ハンバーグ|ポーク</string>
     <string name="regexString_menu_fry">フライ|てんぷら</string>
     <string name="regexString_menu_korokke">コロッケ|カツ</string>

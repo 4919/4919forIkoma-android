@@ -61,11 +61,13 @@ class FireBaseHelper(val context: Context) {
                     menu?.point2 = points[2]?.toString()?: "-"
 
                     menu?.staplePic = when {
-                            check(menu?.stapleName, "ぱん|パン") -> { R.mipmap.pic_staple_bread }
-                            check(menu?.stapleName, "ナン") -> { R.mipmap.pic_staple_nan }
+                            menu?.stapleName.equals("-") -> { R.drawable.ic_empty }
+                            check(menu?.stapleName, context.resources.getString(R.string.regexString_menu_bread)) -> { R.mipmap.pic_staple_bread }
+                            check(menu?.stapleName, context.resources.getString(R.string.regexString_menu_nan)) -> { R.mipmap.pic_staple_nan }
                             else -> { R.mipmap.pic_staple_rice }
                         }
                     menu?.mainDishPic = when {
+                            menu?.mainDishName.equals("-") -> { R.drawable.ic_empty }
                             check(menu?.mainDishName, context.resources.getString(R.string.regexString_menu_meat)) -> { R.mipmap.pic_main_dish_niku }
                             check(menu?.mainDishName, context.resources.getString(R.string.regexString_menu_fry)) -> { R.mipmap.pic_main_dish_fry }
                             check(menu?.mainDishName, context.resources.getString(R.string.regexString_menu_korokke)) -> { R.mipmap.pic_side_dish_korokke }
@@ -73,15 +75,18 @@ class FireBaseHelper(val context: Context) {
                             else -> { R.mipmap.pic_main_dish_fish }
                         }
                     menu?.sideDishPic = when {
+                            menu?.sideDishName.equals("-") -> { R.drawable.ic_empty }
                             check(menu?.sideDishName, context.resources.getString(R.string.regexString_menu_korokke)) -> { R.mipmap.pic_side_dish_korokke }
                             else -> { R.mipmap.pic_side_dish_salad }
                         }
                     menu?.soupPic = when {
+                            menu?.soupName.equals("-") -> { R.drawable.ic_empty }
                             check(menu?.soupName, context.resources.getString(R.string.regexString_menu_noodle)) -> { R.mipmap.pic_soup_udon }
                             check(menu?.soupName, context.resources.getString(R.string.regexString_menu_miso)) -> { R.mipmap.pic_soup_miso }
                             else -> { R.mipmap.pic_soup_clear }
                         }
                     menu?.dessertPic = when {
+                            menu?.dessertName.equals("-") -> { R.drawable.ic_empty }
                             check(menu?.dessertName, context.resources.getString(R.string.regexString_menu_jelly)) -> { R.mipmap.pic_dessert_jelly }
                             else -> { R.mipmap.pic_dessert_orange }
                         }
