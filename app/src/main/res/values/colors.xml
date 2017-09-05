@@ -10,6 +10,6 @@
     <color name="fontColor_gray">#666666</color>
 
     <color name="bgColor_white">#FFFFFF</color>
-    <color name="bgColor_white_a30">#4CFFFFFF</color>
+    <color name="bgColor_white_a50">#7FFFFFFF</color>
 
 </resources>

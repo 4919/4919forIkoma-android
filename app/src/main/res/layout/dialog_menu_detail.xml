@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/marginWidth_clipboard"
-    android:background="@color/bgColor_white_a30">
+    android:background="@color/bgColor_white_a50">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,7 +53,8 @@
                         android:gravity="center"
                         android:text="@string/constString_clipboardAllergen"
                         android:textColor="@color/fontColor_primary"
-                        android:textSize="@dimen/fontSize_clipboardSubTitle" />
+                        android:textSize="@dimen/fontSize_clipboardSubTitle"
+                        android:textStyle="bold"/>
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_allergen_list"
@@ -65,10 +66,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/paddingHeight_clipboard"
                         android:gravity="center"
                         android:text="@string/constString_clipboardIngredients"
                         android:textColor="@color/fontColor_primary"
-                        android:textSize="@dimen/fontSize_clipboardSubTitle" />
+                        android:textSize="@dimen/fontSize_clipboardSubTitle"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -77,6 +80,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/iv_dialog_close"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/bg_clipboard_bottom"
