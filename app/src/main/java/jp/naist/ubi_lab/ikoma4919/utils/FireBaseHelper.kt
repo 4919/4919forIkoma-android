@@ -8,6 +8,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import jp.naist.ubi_lab.ikoma4919.R
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel
+import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -108,6 +109,12 @@ class FireBaseHelper(val context: Context) {
         })
 
     }
+
+
+    fun getMenuDetail(category: MenuCategory, date: Date) {
+
+    }
+
 
     private fun check(name: String?, regexStr: String): Boolean = name?.contains(regexStr.toRegex())?: false
 

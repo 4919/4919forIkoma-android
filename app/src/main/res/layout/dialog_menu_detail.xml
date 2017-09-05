@@ -20,13 +20,20 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:paddingTop="@dimen/paddingHeight_clipboard"
+            android:paddingLeft="@dimen/paddingWidth_clipboard"
+            android:paddingRight="@dimen/paddingWidth_clipboard"
             android:background="@mipmap/bg_clipboard_center"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_menuName_selected"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/initString_clipboardContents"/>
+                android:gravity="center"
+                android:text="@string/initString_clipboardContents"
+                android:textStyle="bold"
+                android:textSize="@dimen/fontSize_clipboardTitle" />
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -35,9 +42,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/paddingHeight_clipboard"
+                    android:layout_marginBottom="@dimen/paddingHeight_clipboard"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/constString_clipboardAllergen"
+                        android:textColor="@color/fontColor_primary"
+                        android:textSize="@dimen/fontSize_clipboardSubTitle" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/constString_clipboardIngredients"
+                        android:textColor="@color/fontColor_primary"
+                        android:textSize="@dimen/fontSize_clipboardSubTitle" />
 
                 </LinearLayout>
 

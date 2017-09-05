@@ -37,4 +37,9 @@ data class MenuModel(
             "-", R.mipmap.ic_launcher,
             "-", "-", "-", "-", "-")
 
+
+    enum class MenuCategory {
+        STAPLE, MAIN_DISH, SIDE_DISH, SOUP, DESSERT, DRINK
+    }
+
 }

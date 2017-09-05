@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel
+import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.util.*
 
@@ -23,6 +24,7 @@ class MenuDetailsFragment : Fragment(), FireBaseHelper.FireBaseEventListener, Vi
     private val TAG = "MenuDetailsFragment"
 
     private var fireBaseHelper: FireBaseHelper? = null
+
     private var tvMenuNameStaple: TextView? = null
     private var tvMenuNameMainDish: TextView? = null
     private var tvMenuNameSideDish: TextView? = null
@@ -120,10 +122,6 @@ class MenuDetailsFragment : Fragment(), FireBaseHelper.FireBaseEventListener, Vi
             R.id.iv_pic_dessert, R.id.tv_menuName_dessert -> openDetailDialog(MenuCategory.DESSERT)
             R.id.iv_pic_drink, R.id.tv_menuName_drink -> openDetailDialog(MenuCategory.DRINK)
         }
-    }
-
-    enum class MenuCategory {
-        STAPLE, MAIN_DISH, SIDE_DISH, SOUP, DESSERT, DRINK
     }
 
     private fun openDetailDialog(category: MenuCategory) {

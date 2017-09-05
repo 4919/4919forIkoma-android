@@ -5,12 +5,18 @@
     <dimen name="fontSize_blackboardContents">16sp</dimen>
     <dimen name="fontSize_blackboardFooter">13sp</dimen>
 
+    <dimen name="fontSize_clipboardTitle">18sp</dimen>
+    <dimen name="fontSize_clipboardSubTitle">14sp</dimen>
+
     <dimen name="marginWidth_toolbar">16dp</dimen>
     <dimen name="marginHeight_blackboard">8dp</dimen>
     <dimen name="marginWidth_clipboard">12dp</dimen>
 
     <dimen name="paddingHeight_blackboard">24dp</dimen>
     <dimen name="paddingWidth_blackboard">20dp</dimen>
+
+    <dimen name="paddingHeight_clipboard">12dp</dimen>
+    <dimen name="paddingWidth_clipboard">32dp</dimen>
 
     <dimen name="paddingHeight_calendar">12dp</dimen>
     <dimen name="paddingWidth_calendar">12dp</dimen>
