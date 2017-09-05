@@ -1,6 +1,7 @@
 package jp.naist.ubi_lab.ikoma4919.utils
 
 import android.content.Context
+import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -18,7 +19,7 @@ import java.util.*
 class FireBaseHelper(val context: Context) {
     private val TAG = "FireBaseHelper"
 
-    private var database: FirebaseDatabase? = null
+    private var database: FirebaseDatabase? = FirebaseDatabase.getInstance()
     private var listener: FireBaseEventListener? = null
     private var menu: MenuSummary? = null
 
@@ -35,72 +36,64 @@ class FireBaseHelper(val context: Context) {
 
         val simpleDateFormat = SimpleDateFormat("yyMMdd", Locale.JAPAN)
         val targetDate = simpleDateFormat.format(date)
-
-        database = FirebaseDatabase.getInstance()
         val ref = database?.getReference(targetDate)
 
-        menu = MenuSummary(date)
-//        Log.d(TAG, menu?.date.toString())
+        val menuSummary = MenuSummary(date)
+//        Log.d(TAG, menu.date.toString())
 
         ref?.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val numChildren = dataSnapshot.childrenCount
                 if(numChildren > 0) {
-                    menu?.stapleName = getMenuItemName(dataSnapshot, "staple")
-                    menu?.mainDishName = getMenuItemName(dataSnapshot, "main_dish")
-                    menu?.sideDishName = getMenuItemName(dataSnapshot, "side_dish")
-                    menu?.soupName = getMenuItemName(dataSnapshot, "soup")
-                    menu?.drinkName = context.resources.getString(R.string.initString_menuName_drink)
-                    menu?.dessertName = getMenuItemName(dataSnapshot, "dessert")
+                    menuSummary.stapleName = getMenuItemName(dataSnapshot, "staple")
+                    menuSummary.mainDishName = getMenuItemName(dataSnapshot, "main_dish")
+                    menuSummary.sideDishName = getMenuItemName(dataSnapshot, "side_dish")
+                    menuSummary.soupName = getMenuItemName(dataSnapshot, "soup")
+                    menuSummary.drinkName = context.resources.getString(R.string.initString_menuName_drink)
+                    menuSummary.dessertName = getMenuItemName(dataSnapshot, "dessert")
 
-                    menu?.energy = dataSnapshot.child("energy")?.getValue(String::class.java)?: "-"
-                    menu?.protein = dataSnapshot.child("protein")?.getValue(String::class.java)?: "-"
+                    menuSummary.energy = dataSnapshot.child("energy")?.getValue(String::class.java)?: "-"
+                    menuSummary.protein = dataSnapshot.child("protein")?.getValue(String::class.java)?: "-"
 
                     val points = dataSnapshot.child("threePoint")?.value as ArrayList<*>
-                    menu?.point0 = points[0]?.toString()?: "-"
-                    menu?.point1 = points[1]?.toString()?: "-"
-                    menu?.point2 = points[2]?.toString()?: "-"
+                    menuSummary.point0 = points[0]?.toString()?: "-"
+                    menuSummary.point1 = points[1]?.toString()?: "-"
+                    menuSummary.point2 = points[2]?.toString()?: "-"
 
-                    menu?.staplePic = when {
-                            menu?.stapleName.equals("-") -> { R.drawable.ic_empty }
-                            check(menu?.stapleName, context.resources.getString(R.string.regexString_menu_bread)) -> { R.mipmap.pic_staple_bread }
-                            check(menu?.stapleName, context.resources.getString(R.string.regexString_menu_nan)) -> { R.mipmap.pic_staple_nan }
+                    menuSummary.staplePic = when {
+                            menuSummary.stapleName.equals("-") -> { R.drawable.ic_empty }
+                            check(menuSummary.stapleName, context.resources.getString(R.string.regexString_menu_bread)) -> { R.mipmap.pic_staple_bread }
+                            check(menuSummary.stapleName, context.resources.getString(R.string.regexString_menu_nan)) -> { R.mipmap.pic_staple_nan }
                             else -> { R.mipmap.pic_staple_rice }
                         }
-                    menu?.mainDishPic = when {
-                            menu?.mainDishName.equals("-") -> { R.drawable.ic_empty }
-                            check(menu?.mainDishName, context.resources.getString(R.string.regexString_menu_meat)) -> { R.mipmap.pic_main_dish_niku }
-                            check(menu?.mainDishName, context.resources.getString(R.string.regexString_menu_fry)) -> { R.mipmap.pic_main_dish_fry }
-                            check(menu?.mainDishName, context.resources.getString(R.string.regexString_menu_korokke)) -> { R.mipmap.pic_side_dish_korokke }
-                            check(menu?.mainDishName, context.resources.getString(R.string.regexString_menu_yasai)) -> { R.mipmap.pic_main_dish_yasai }
+                    menuSummary.mainDishPic = when {
+                            menuSummary.mainDishName.equals("-") -> { R.drawable.ic_empty }
+                            check(menuSummary.mainDishName, context.resources.getString(R.string.regexString_menu_meat)) -> { R.mipmap.pic_main_dish_niku }
+                            check(menuSummary.mainDishName, context.resources.getString(R.string.regexString_menu_fry)) -> { R.mipmap.pic_main_dish_fry }
+                            check(menuSummary.mainDishName, context.resources.getString(R.string.regexString_menu_korokke)) -> { R.mipmap.pic_side_dish_korokke }
+                            check(menuSummary.mainDishName, context.resources.getString(R.string.regexString_menu_yasai)) -> { R.mipmap.pic_main_dish_yasai }
                             else -> { R.mipmap.pic_main_dish_fish }
                         }
-                    menu?.sideDishPic = when {
-                            menu?.sideDishName.equals("-") -> { R.drawable.ic_empty }
-                            check(menu?.sideDishName, context.resources.getString(R.string.regexString_menu_korokke)) -> { R.mipmap.pic_side_dish_korokke }
+                    menuSummary.sideDishPic = when {
+                            menuSummary.sideDishName.equals("-") -> { R.drawable.ic_empty }
+                            check(menuSummary.sideDishName, context.resources.getString(R.string.regexString_menu_korokke)) -> { R.mipmap.pic_side_dish_korokke }
                             else -> { R.mipmap.pic_side_dish_salad }
                         }
-                    menu?.soupPic = when {
-                            menu?.soupName.equals("-") -> { R.drawable.ic_empty }
-                            check(menu?.soupName, context.resources.getString(R.string.regexString_menu_noodle)) -> { R.mipmap.pic_soup_udon }
-                            check(menu?.soupName, context.resources.getString(R.string.regexString_menu_miso)) -> { R.mipmap.pic_soup_miso }
+                    menuSummary.soupPic = when {
+                            menuSummary.soupName.equals("-") -> { R.drawable.ic_empty }
+                            check(menuSummary.soupName, context.resources.getString(R.string.regexString_menu_noodle)) -> { R.mipmap.pic_soup_udon }
+                            check(menuSummary.soupName, context.resources.getString(R.string.regexString_menu_miso)) -> { R.mipmap.pic_soup_miso }
                             else -> { R.mipmap.pic_soup_clear }
                         }
-                    menu?.dessertPic = when {
-                            menu?.dessertName.equals("-") -> { R.drawable.ic_empty }
-                            check(menu?.dessertName, context.resources.getString(R.string.regexString_menu_jelly)) -> { R.mipmap.pic_dessert_jelly }
+                    menuSummary.dessertPic = when {
+                            menuSummary.dessertName.equals("-") -> { R.drawable.ic_empty }
+                            check(menuSummary.dessertName, context.resources.getString(R.string.regexString_menu_jelly)) -> { R.mipmap.pic_dessert_jelly }
                             else -> { R.mipmap.pic_dessert_orange }
                         }
-                    menu?.drinkPic = R.mipmap.pic_drink_milk
+                    menuSummary.drinkPic = R.mipmap.pic_drink_milk
 
-
-//                    Log.d(TAG, menu?.toString())
-
-                    listener?.onSummaryFetched(menu?: MenuSummary(date))
-
-                } else {
-                    listener?.onSummaryFetched(MenuSummary(date))
                 }
+                listener?.onSummaryFetched(menuSummary)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -113,11 +106,30 @@ class FireBaseHelper(val context: Context) {
 
     fun getMenuDetail(category: MenuCategory, date: Date) {
 
-        val menuDetail = MenuDetail(date)
-        menuDetail.stapleName = "hoge"
-        menuDetail.allergenList.add(MenuModel().getAllergenIdentifier("豚肉"))
+        val categoryStr = category.toString().toLowerCase()
 
-        listener?.onDetailFetched(menuDetail)
+        val simpleDateFormat = SimpleDateFormat("yyMMdd", Locale.JAPAN)
+        val targetDate = simpleDateFormat.format(date)
+        val ref = database?.getReference(targetDate)
+
+        val menuDetail = MenuDetail(date)
+
+        Log.d(TAG, "category.toString().toLowerCase() : ${category.toString().toLowerCase()}")
+
+        ref?.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val numChildren = dataSnapshot.childrenCount
+                if (numChildren > 0) {
+                    menuDetail.menuName = getMenuItemName(dataSnapshot, categoryStr) ?: "-"
+                    Log.d(TAG, menuDetail.toString())
+                }
+                listener?.onDetailFetched(menuDetail)
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                listener?.onSummaryFetched(MenuSummary(date))
+            }
+        })
+
     }
 
 

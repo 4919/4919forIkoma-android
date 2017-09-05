@@ -42,7 +42,7 @@ class MenuModel {
 
     }
 
-    data class MenuDetail(var date: Date, var stapleName: String, var allergenList: ArrayList<AllergenIdentifier>, var ingredientList: ArrayList<String>) {
+    data class MenuDetail(var date: Date, var menuName: String, var allergenList: ArrayList<AllergenIdentifier>, var ingredientList: ArrayList<String>) {
         constructor(date: Date) : this(date, "-", ArrayList<AllergenIdentifier>(), ArrayList<String>())
     }
 
