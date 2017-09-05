@@ -121,6 +121,12 @@ class FireBaseHelper(val context: Context) {
                 val numChildren = dataSnapshot.childrenCount
                 if (numChildren > 0) {
                     menuDetail.menuName = getMenuItemName(dataSnapshot, categoryStr) ?: "-"
+                    getMenuItemArray(dataSnapshot, categoryStr, "allergen")?.forEach {
+                        menuDetail.allergenList.add(MenuModel().getAllergenIdentifier(it.getValue(String::class.java)))
+                    }
+                    getMenuItemArray(dataSnapshot, categoryStr, "ingredients")?.forEach {
+                        menuDetail.ingredientList.add(it.getValue(String::class.java))
+                    }
                     Log.d(TAG, menuDetail.toString())
                 }
                 listener?.onDetailFetched(menuDetail)
@@ -137,5 +143,8 @@ class FireBaseHelper(val context: Context) {
 
     private fun getMenuItemName(dataSnapshot: DataSnapshot, category: String): String? =
             dataSnapshot.child("menu_list")?.child(category)?.child("name")?.getValue(String::class.java) ?: "-"
+
+    private fun getMenuItemArray(dataSnapshot: DataSnapshot, category: String, arrayName: String): Iterable<DataSnapshot>? =
+            dataSnapshot.child("menu_list")?.child(category)?.child(arrayName)?.children
 
 }
