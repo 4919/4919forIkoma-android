@@ -54,6 +54,12 @@
                         android:textColor="@color/fontColor_primary"
                         android:textSize="@dimen/fontSize_clipboardSubTitle" />
 
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_allergen_list"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:clipToPadding="false" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

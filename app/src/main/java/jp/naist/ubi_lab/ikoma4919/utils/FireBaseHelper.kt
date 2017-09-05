@@ -122,7 +122,7 @@ class FireBaseHelper(val context: Context) {
                 if (numChildren > 0) {
                     menuDetail.menuName = getMenuItemName(dataSnapshot, categoryStr) ?: "-"
                     getMenuItemArray(dataSnapshot, categoryStr, "allergen")?.forEach {
-                        menuDetail.allergenList.add(MenuModel().getAllergenIdentifier(it.getValue(String::class.java)))
+                        menuDetail.allergenList.add(MenuModel().getAllergenIdentifier(context, it.getValue(String::class.java)))
                     }
                     getMenuItemArray(dataSnapshot, categoryStr, "ingredients")?.forEach {
                         menuDetail.ingredientList.add(it.getValue(String::class.java))

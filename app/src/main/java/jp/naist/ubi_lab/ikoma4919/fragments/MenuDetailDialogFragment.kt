@@ -2,12 +2,16 @@ package jp.naist.ubi_lab.ikoma4919.fragments
 
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
+import android.support.v4.content.res.ResourcesCompat
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
+import jp.naist.ubi_lab.ikoma4919.models.MenuModel
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
+import jp.naist.ubi_lab.ikoma4919.models.MenuModel.AllergenIdentifier.*
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.util.*
 
@@ -58,6 +62,13 @@ class MenuDetailDialogFragment(): DialogFragment(), FireBaseHelper.FireBaseEvent
     override fun onDetailFetched(menuDetail: MenuDetail) {
 
         tvMenuNameSelected?.text = menuDetail.menuName
+        menuDetail.allergenList.forEach {
+            val allergenIconResId = MenuModel().getAllergenIconResId(it)
+            if(allergenIconResId > 0) {
+                Log.d("a", TAG + " : " + allergenIconResId)
+            }
+        }
+
 
     }
 

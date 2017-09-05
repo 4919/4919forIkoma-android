@@ -12,6 +12,9 @@
     <string name="constString_clipboardAllergen">含まれるアレルゲン</string>
     <string name="constString_clipboardIngredients">食材リスト</string>
 
+    <string name="constString_allergen_pork">豚肉</string>
+    <string name="constString_allergen_wheat">小麦</string>
+
     <string name="initString_toolbarTitle">読み込み中</string>
     <string name="initString_blackboardContents">読み込み中</string>
     <string name="initString_clipboardContents">読み込み中</string>

@@ -1,5 +1,7 @@
 package jp.naist.ubi_lab.ikoma4919.models
 
+import android.content.Context
+import android.support.v4.content.res.ResourcesCompat
 import jp.naist.ubi_lab.ikoma4919.R
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel.AllergenIdentifier.*
 import java.util.*
@@ -72,11 +74,20 @@ class MenuModel {
         SQUID,       // イカ
     }
 
-    val allergenMap = mapOf(
-            "豚肉" to PORK,
-            "小麦" to WHEAT
+    val allergenMap  = mapOf(
+            PORK to arrayOf(R.string.constString_allergen_pork, R.mipmap.pic_allergen_pork),
+            WHEAT to arrayOf(R.string.constString_allergen_wheat, R.mipmap.ic_launcher)
     )
 
-    fun getAllergenIdentifier(allergenStr: String): AllergenIdentifier = allergenMap[allergenStr] ?: UNDEFINED
+    fun getAllergenIdentifier(context: Context, allergenStr: String): AllergenIdentifier {
+        allergenMap.forEach {
+            if(context.getString(it.value[0]) == allergenStr) {
+                return it.key
+            }
+        }
+        return UNDEFINED
+    }
+
+    fun getAllergenIconResId(identifier: AllergenIdentifier): Int = allergenMap[identifier]?.get(1) ?: -1
 
 }
