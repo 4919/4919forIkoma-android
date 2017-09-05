@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.CalendarView
+import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
-import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
+import jp.naist.ubi_lab.ikoma4919.models.MenuModel.MenuDetail
+import jp.naist.ubi_lab.ikoma4919.models.MenuModel.MenuSummary
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.text.SimpleDateFormat
 import java.util.*

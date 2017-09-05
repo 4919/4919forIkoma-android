@@ -10,9 +10,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
 import jp.naist.ubi_lab.ikoma4919.adapters.AllergenGridAdapter
-import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.AllergenCategory.*
+import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.Allergen
+import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.AllergenCategory.EMPTY
+import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.AllergenCategory.UNKNOWN
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
-import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.*
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.util.*
 
