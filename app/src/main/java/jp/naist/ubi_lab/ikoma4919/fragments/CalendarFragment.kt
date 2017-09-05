@@ -1,15 +1,13 @@
 package jp.naist.ubi_lab.ikoma4919.fragments
 
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import jp.naist.ubi_lab.ikoma4919.R
-import jp.naist.ubi_lab.ikoma4919.models.MenuModel
+import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.text.SimpleDateFormat
 import java.util.*
@@ -63,11 +61,14 @@ class CalendarFragment : Fragment(), CalendarView.OnDateChangeListener, FireBase
         fireBaseHelper?.getMenuSummary(dateStrParser.parse("$year-${month+1}-$day"))
     }
 
-    override fun onSummaryFetched(menu: MenuModel) {
-        tvMenuNameStaple?.text = menu.stapleName
-        tvMenuNameDishes?.text = "${menu.mainDishName}\n${menu.sideDishName}\n${menu.soupName}"
-        tvMenuNameDrink?.text = menu.drinkName
-        tvMenuNameDessert?.text = menu.dessertName
+    override fun onSummaryFetched(menuSummary: MenuSummary) {
+        tvMenuNameStaple?.text = menuSummary.stapleName
+        tvMenuNameDishes?.text = "${menuSummary.mainDishName}\n${menuSummary.sideDishName}\n${menuSummary.soupName}"
+        tvMenuNameDrink?.text = menuSummary.drinkName
+        tvMenuNameDessert?.text = menuSummary.dessertName
+    }
+
+    override fun onDetailFetched(menuDetail: MenuDetail) {
     }
 
 }

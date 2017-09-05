@@ -1,7 +1,6 @@
 package jp.naist.ubi_lab.ikoma4919.utils
 
 import android.content.Context
-import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -21,10 +20,11 @@ class FireBaseHelper(val context: Context) {
 
     private var database: FirebaseDatabase? = null
     private var listener: FireBaseEventListener? = null
-    private var menu: MenuModel? = null
+    private var menu: MenuSummary? = null
 
     interface FireBaseEventListener {
-        fun onSummaryFetched(menu: MenuModel)
+        fun onSummaryFetched(menuSummary: MenuSummary)
+        fun onDetailFetched(menuDetail: MenuDetail)
     }
 
     fun setFireBaseEventListener(listener: FireBaseEventListener) {
@@ -39,7 +39,7 @@ class FireBaseHelper(val context: Context) {
         database = FirebaseDatabase.getInstance()
         val ref = database?.getReference(targetDate)
 
-        menu = MenuModel(date)
+        menu = MenuSummary(date)
 //        Log.d(TAG, menu?.date.toString())
 
         ref?.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -96,15 +96,15 @@ class FireBaseHelper(val context: Context) {
 
 //                    Log.d(TAG, menu?.toString())
 
-                    listener?.onSummaryFetched(menu?: MenuModel(date))
+                    listener?.onSummaryFetched(menu?: MenuSummary(date))
 
                 } else {
-                    listener?.onSummaryFetched(MenuModel(date))
+                    listener?.onSummaryFetched(MenuSummary(date))
                 }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                listener?.onSummaryFetched(MenuModel(date))
+                listener?.onSummaryFetched(MenuSummary(date))
             }
         })
 
@@ -113,6 +113,11 @@ class FireBaseHelper(val context: Context) {
 
     fun getMenuDetail(category: MenuCategory, date: Date) {
 
+        val menuDetail = MenuDetail(date)
+        menuDetail.stapleName = "hoge"
+        menuDetail.allergenList.add(MenuModel().getAllergenIdentifier("豚肉"))
+
+        listener?.onDetailFetched(menuDetail)
     }
 
 

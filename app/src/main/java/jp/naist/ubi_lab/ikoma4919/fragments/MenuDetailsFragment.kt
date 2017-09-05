@@ -2,7 +2,6 @@ package jp.naist.ubi_lab.ikoma4919.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.support.v4.content.res.ResourcesCompat
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
-import jp.naist.ubi_lab.ikoma4919.models.MenuModel
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.util.*
@@ -24,6 +22,8 @@ class MenuDetailsFragment : Fragment(), FireBaseHelper.FireBaseEventListener, Vi
     private val TAG = "MenuDetailsFragment"
 
     private var fireBaseHelper: FireBaseHelper? = null
+
+    private val date = Date()
 
     private var tvMenuNameStaple: TextView? = null
     private var tvMenuNameMainDish: TextView? = null
@@ -85,7 +85,7 @@ class MenuDetailsFragment : Fragment(), FireBaseHelper.FireBaseEventListener, Vi
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fireBaseHelper?.getMenuSummary(Date())
+        fireBaseHelper?.getMenuSummary(date)
 
     }
 
@@ -93,24 +93,27 @@ class MenuDetailsFragment : Fragment(), FireBaseHelper.FireBaseEventListener, Vi
         super.onDestroy()
     }
 
-    override fun onSummaryFetched(menu: MenuModel) {
-        tvMenuNameStaple?.text = menu.stapleName
-        tvMenuNameMainDish?.text = menu.mainDishName
-        tvMenuNameSideDish?.text = menu.sideDishName
-        tvMenuNameSoup?.text = menu.soupName
-        tvMenuNameDrink?.text = menu.drinkName
-        tvMenuNameDessert?.text = menu.dessertName
-        tvMenuEnergy?.text = "${menu.energy} kcal"
-        tvMenuPoint0?.text = menu.point0
-        tvMenuPoint1?.text = menu.point1
-        tvMenuPoint2?.text = menu.point2
+    override fun onSummaryFetched(menuSummary: MenuSummary) {
+        tvMenuNameStaple?.text = menuSummary.stapleName
+        tvMenuNameMainDish?.text = menuSummary.mainDishName
+        tvMenuNameSideDish?.text = menuSummary.sideDishName
+        tvMenuNameSoup?.text = menuSummary.soupName
+        tvMenuNameDrink?.text = menuSummary.drinkName
+        tvMenuNameDessert?.text = menuSummary.dessertName
+        tvMenuEnergy?.text = "${menuSummary.energy} kcal"
+        tvMenuPoint0?.text = menuSummary.point0
+        tvMenuPoint1?.text = menuSummary.point1
+        tvMenuPoint2?.text = menuSummary.point2
 
-        ivPicStaple?.setImageDrawable(ResourcesCompat.getDrawable(resources, menu.staplePic, null))
-        ivPicMainDish?.setImageDrawable(ResourcesCompat.getDrawable(resources, menu.mainDishPic, null))
-        ivPicSideDish?.setImageDrawable(ResourcesCompat.getDrawable(resources, menu.sideDishPic, null))
-        ivPicSoup?.setImageDrawable(ResourcesCompat.getDrawable(resources, menu.soupPic, null))
-        ivPicDrink?.setImageDrawable(ResourcesCompat.getDrawable(resources, menu.drinkPic, null))
-        ivPicDessert?.setImageDrawable(ResourcesCompat.getDrawable(resources, menu.dessertPic, null))
+        ivPicStaple?.setImageDrawable(ResourcesCompat.getDrawable(resources, menuSummary.staplePic, null))
+        ivPicMainDish?.setImageDrawable(ResourcesCompat.getDrawable(resources, menuSummary.mainDishPic, null))
+        ivPicSideDish?.setImageDrawable(ResourcesCompat.getDrawable(resources, menuSummary.sideDishPic, null))
+        ivPicSoup?.setImageDrawable(ResourcesCompat.getDrawable(resources, menuSummary.soupPic, null))
+        ivPicDrink?.setImageDrawable(ResourcesCompat.getDrawable(resources, menuSummary.drinkPic, null))
+        ivPicDessert?.setImageDrawable(ResourcesCompat.getDrawable(resources, menuSummary.dessertPic, null))
+    }
+
+    override fun onDetailFetched(menuDetail: MenuDetail) {
     }
 
     override fun onClick(v: View?) {
@@ -129,7 +132,7 @@ class MenuDetailsFragment : Fragment(), FireBaseHelper.FireBaseEventListener, Vi
         activity.supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out)
-                .replace(R.id.ll_dialog_container, MenuDetailDialogFragment())
+                .replace(R.id.ll_dialog_container, MenuDetailDialogFragment(category, date))
                 .commit()
 
     }

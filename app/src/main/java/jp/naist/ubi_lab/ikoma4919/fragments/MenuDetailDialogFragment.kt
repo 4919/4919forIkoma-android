@@ -55,7 +55,14 @@ class MenuDetailDialogFragment(): DialogFragment(), FireBaseHelper.FireBaseEvent
         super.onDestroy()
     }
 
-    override fun onSummaryFetched(menu: MenuModel) {
+    override fun onSummaryFetched(menuSummary: MenuSummary) {
     }
+
+    override fun onDetailFetched(menuDetail: MenuDetail) {
+
+        tvMenuNameSelected?.text = menuDetail.stapleName
+
+    }
+
 
 }
