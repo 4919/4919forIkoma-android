@@ -8,9 +8,18 @@
         <item name="colorAccent">@color/baseColor_warning</item>
     </style>
 
-    <style name="BlackboardContentsText">
+    <style name="BlackboardContentsLabel">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/fontColor_white</item>
         <item name="android:textSize">@dimen/fontSize_blackboardContents</item>
+    </style>
+
+    <style name="BlackboardContentsValue" parent="BlackboardContentsLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:text">@string/initString_blackboardContents</item>
     </style>
 
     <style name="BlackboardFooterText">

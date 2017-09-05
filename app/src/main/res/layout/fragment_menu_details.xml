@@ -40,20 +40,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/marginHeight_blackboard"
                 android:orientation="horizontal">
-
                 <TextView
-                    style="@style/BlackboardContentsText"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    style="@style/BlackboardContentsLabel"
                     android:text="@string/constString_menuName_staple"/>
-
                 <TextView
                     android:id="@+id/tv_menuName_staple"
-                    style="@style/BlackboardContentsText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/initString_blackboardContents"/>
-
+                    style="@style/BlackboardContentsValue"/>
             </LinearLayout>
 
             <LinearLayout
@@ -61,41 +53,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/marginHeight_blackboard"
                 android:orientation="horizontal">
-
                 <TextView
-                    style="@style/BlackboardContentsText"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    style="@style/BlackboardContentsLabel"
                     android:text="@string/constString_menuName_dishes"/>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <TextView
                         android:id="@+id/tv_menuName_mainDish"
-                        style="@style/BlackboardContentsText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/initString_blackboardContents"/>
-
+                        style="@style/BlackboardContentsValue"/>
                     <TextView
                         android:id="@+id/tv_menuName_sideDish"
-                        style="@style/BlackboardContentsText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/initString_blackboardContents"/>
-
+                        style="@style/BlackboardContentsValue"/>
                     <TextView
                         android:id="@+id/tv_menuName_soup"
-                        style="@style/BlackboardContentsText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/initString_blackboardContents"/>
-
+                        style="@style/BlackboardContentsValue"/>
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
@@ -103,20 +77,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/marginHeight_blackboard"
                 android:orientation="horizontal">
-
                 <TextView
-                    style="@style/BlackboardContentsText"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    style="@style/BlackboardContentsLabel"
                     android:text="@string/constString_menuName_drink"/>
-
                 <TextView
                     android:id="@+id/tv_menuName_drink"
-                    style="@style/BlackboardContentsText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/initString_blackboardContents"/>
-
+                    style="@style/BlackboardContentsValue"/>
             </LinearLayout>
 
             <LinearLayout
@@ -124,20 +90,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/marginHeight_blackboard"
                 android:orientation="horizontal">
-
                 <TextView
-                    style="@style/BlackboardContentsText"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    style="@style/BlackboardContentsLabel"
                     android:text="@string/constString_menuName_dessert"/>
-
                 <TextView
                     android:id="@+id/tv_menuName_dessert"
-                    style="@style/BlackboardContentsText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/initString_blackboardContents"/>
-
+                    style="@style/BlackboardContentsValue"/>
             </LinearLayout>
 
             <LinearLayout
@@ -145,21 +103,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/marginHeight_blackboard"
                 android:orientation="horizontal">
-
                 <TextView
                     style="@style/BlackboardFooterText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="@string/constString_menuEnergy"/>
-
                 <TextView
                     android:id="@+id/tv_menuEnergy"
                     style="@style/BlackboardFooterText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/initString_blackboardContents"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -167,7 +122,6 @@
                     android:text="@string/constString_menuPointCircle"
                     android:textSize="@dimen/fontSize_blackboardContents"
                     android:textColor="@color/baseColor_warning" />
-
                 <TextView
                     android:id="@+id/tv_menuPoint_0"
                     style="@style/BlackboardFooterText"
@@ -175,7 +129,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:text="@string/initString_blackboardShortContents"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -183,7 +136,6 @@
                     android:text="@string/constString_menuPointCircle"
                     android:textSize="@dimen/fontSize_blackboardContents"
                     android:textColor="@color/baseColor_success" />
-
                 <TextView
                     android:id="@+id/tv_menuPoint_1"
                     style="@style/BlackboardFooterText"
@@ -191,7 +143,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:text="@string/initString_blackboardShortContents"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -199,7 +150,6 @@
                     android:text="@string/constString_menuPointCircle"
                     android:textSize="@dimen/fontSize_blackboardContents"
                     android:textColor="@color/baseColor_primary" />
-
                 <TextView
                     android:id="@+id/tv_menuPoint_2"
                     style="@style/BlackboardFooterText"
@@ -207,10 +157,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
                     android:text="@string/initString_blackboardShortContents"/>
-
             </LinearLayout>
-
-
         </LinearLayout>
 
     </RelativeLayout>
