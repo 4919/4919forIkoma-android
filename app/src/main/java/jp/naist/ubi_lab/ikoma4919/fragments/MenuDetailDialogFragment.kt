@@ -3,6 +3,7 @@ package jp.naist.ubi_lab.ikoma4919.fragments
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
 import jp.naist.ubi_lab.ikoma4919.adapters.AllergenGridAdapter
+import jp.naist.ubi_lab.ikoma4919.adapters.IngredientListAdapter
 import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.Allergen
 import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.AllergenCategory.EMPTY
 import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.AllergenCategory.UNKNOWN
@@ -33,6 +35,8 @@ class MenuDetailDialogFragment(): DialogFragment(), FireBaseHelper.FireBaseEvent
     private var tvMenuNameSelected: TextView? = null
     private var rvAllergenList: RecyclerView? = null
     private var allergenGridAdapter: AllergenGridAdapter? = null
+    private var rvIngredientList: RecyclerView? = null
+    private var ingredientListAdapter: IngredientListAdapter? = null
     private var ivBtnDialogClose: ImageView? = null
 
     constructor(category: MenuCategory, date: Date): this() {
@@ -49,11 +53,19 @@ class MenuDetailDialogFragment(): DialogFragment(), FireBaseHelper.FireBaseEvent
         tvMenuNameSelected = v.findViewById(R.id.tv_menuName_selected)
 
         allergenGridAdapter = AllergenGridAdapter(context)
+        ingredientListAdapter = IngredientListAdapter(context)
 
         rvAllergenList = v.findViewById(R.id.rv_allergen_list)
-        rvAllergenList?.setHasFixedSize(true)
+        rvAllergenList?.isNestedScrollingEnabled = false
+        rvAllergenList?.setHasFixedSize(false)
         rvAllergenList?.layoutManager = GridLayoutManager(context, 4)
         rvAllergenList?.adapter = allergenGridAdapter
+
+        rvIngredientList = v.findViewById(R.id.rv_ingredient_list)
+        rvIngredientList?.isNestedScrollingEnabled = false
+        rvIngredientList?.setHasFixedSize(false)
+        rvIngredientList?.layoutManager = LinearLayoutManager(context)
+        rvIngredientList?.adapter = ingredientListAdapter
 
         ivBtnDialogClose = v.findViewById(R.id.iv_dialog_close)
         ivBtnDialogClose?.setOnClickListener(this)
@@ -84,6 +96,7 @@ class MenuDetailDialogFragment(): DialogFragment(), FireBaseHelper.FireBaseEvent
     override fun onDetailFetched(menuDetail: MenuDetail) {
 
         allergenGridAdapter?.resetList()
+        ingredientListAdapter?.resetList()
 
         tvMenuNameSelected?.text = menuDetail.menuName
 
@@ -97,6 +110,15 @@ class MenuDetailDialogFragment(): DialogFragment(), FireBaseHelper.FireBaseEvent
             allergenGridAdapter?.addItem(Allergen(EMPTY))
         }
         allergenGridAdapter?.notifyDataSetChanged()
+
+        if(menuDetail.ingredientList.size > 0) {
+            menuDetail.ingredientList.forEach {
+                if (it != "") {
+                    ingredientListAdapter?.addItem(it)
+                }
+            }
+        }
+        ingredientListAdapter?.notifyDataSetChanged()
 
     }
 

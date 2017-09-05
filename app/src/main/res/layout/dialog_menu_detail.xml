@@ -60,7 +60,6 @@
                         android:id="@+id/rv_allergen_list"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
-                        android:layout_gravity="center_horizontal"
                         android:clipToPadding="false" />
 
                     <TextView
@@ -72,6 +71,12 @@
                         android:textColor="@color/fontColor_primary"
                         android:textSize="@dimen/fontSize_clipboardSubTitle"
                         android:textStyle="bold" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_ingredient_list"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:clipToPadding="false" />
 
                 </LinearLayout>
 
