@@ -19,6 +19,8 @@
     <dimen name="paddingHeight_clipboard">12dp</dimen>
     <dimen name="paddingWidth_clipboard">32dp</dimen>
 
+    <dimen name="paddingHeight_allergen">6dp</dimen>
+
     <dimen name="paddingHeight_calendar">12dp</dimen>
     <dimen name="paddingWidth_calendar">12dp</dimen>
 

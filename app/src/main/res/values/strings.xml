@@ -13,9 +13,34 @@
     <string name="constString_clipboardIngredients">食材リスト</string>
 
     <string name="constString_allergen_empty">該当なし</string>
-    <string name="constString_allergen_unknown">不明</string>
-    <string name="constString_allergen_pork">豚肉</string>
+    <string name="constString_allergen_unknown">未定義</string>
+    <string name="constString_allergen_shrimp">えび</string>
+    <string name="constString_allergen_crab">かに</string>
     <string name="constString_allergen_wheat">小麦</string>
+    <string name="constString_allergen_milk">乳</string>
+    <string name="constString_allergen_peanut">落花生</string>
+    <string name="constString_allergen_soba">そば</string>
+    <string name="constString_allergen_egg">卵</string>
+    <string name="constString_allergen_abalone">あわび</string>
+    <string name="constString_allergen_squid">いか</string>
+    <string name="constString_allergen_ikra">いくら</string>
+    <string name="constString_allergen_salmon">さけ</string>
+    <string name="constString_allergen_mackerel">さば</string>
+    <string name="constString_allergen_pork">豚肉</string>
+    <string name="constString_allergen_beef">牛肉</string>
+    <string name="constString_allergen_chicken">鶏肉</string>
+    <string name="constString_allergen_cashew_nut">カシューナッツ</string>
+    <string name="constString_allergen_soy">大豆</string>
+    <string name="constString_allergen_sesame">ごま</string>
+    <string name="constString_allergen_matsutake">まつたけ</string>
+    <string name="constString_allergen_yam">やまいも</string>
+    <string name="constString_allergen_orange">オレンジ</string>
+    <string name="constString_allergen_apple">りんご</string>
+    <string name="constString_allergen_kiwi">キウイ</string>
+    <string name="constString_allergen_banana">バナナ</string>
+    <string name="constString_allergen_peach">もも</string>
+    <string name="constString_allergen_walnut">くるみ</string>
+    <string name="constString_allergen_gelatine">ゼラチン</string>
 
     <string name="initString_toolbarTitle">読み込み中</string>
     <string name="initString_blackboardContents">読み込み中</string>
