@@ -9,9 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
+import jp.naist.ubi_lab.ikoma4919.models.AllergenModel
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
-import jp.naist.ubi_lab.ikoma4919.models.MenuModel.AllergenIdentifier.*
+import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.AllergenCategory.*
 import jp.naist.ubi_lab.ikoma4919.utils.FireBaseHelper
 import java.util.*
 
@@ -63,7 +64,7 @@ class MenuDetailDialogFragment(): DialogFragment(), FireBaseHelper.FireBaseEvent
 
         tvMenuNameSelected?.text = menuDetail.menuName
         menuDetail.allergenList.forEach {
-            val allergenIconResId = MenuModel().getAllergenIconResId(it)
+            val allergenIconResId = AllergenModel().getAllergenIconResId(it)
             if(allergenIconResId > 0) {
                 Log.d("a", TAG + " : " + allergenIconResId)
             }

@@ -7,6 +7,7 @@
 
     <dimen name="fontSize_clipboardTitle">18sp</dimen>
     <dimen name="fontSize_clipboardSubTitle">14sp</dimen>
+    <dimen name="fontSize_clipboardContents">10sp</dimen>
 
     <dimen name="marginWidth_toolbar">16dp</dimen>
     <dimen name="marginHeight_blackboard">8dp</dimen>

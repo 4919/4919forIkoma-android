@@ -7,7 +7,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import jp.naist.ubi_lab.ikoma4919.R
-import jp.naist.ubi_lab.ikoma4919.models.MenuModel
+import jp.naist.ubi_lab.ikoma4919.models.AllergenModel
 import jp.naist.ubi_lab.ikoma4919.models.MenuModel.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -122,7 +122,7 @@ class FireBaseHelper(val context: Context) {
                 if (numChildren > 0) {
                     menuDetail.menuName = getMenuItemName(dataSnapshot, categoryStr) ?: "-"
                     getMenuItemArray(dataSnapshot, categoryStr, "allergen")?.forEach {
-                        menuDetail.allergenList.add(MenuModel().getAllergenIdentifier(context, it.getValue(String::class.java)))
+                        menuDetail.allergenList.add(AllergenModel().getAllergenCategory(context, it.getValue(String::class.java)))
                     }
                     getMenuItemArray(dataSnapshot, categoryStr, "ingredients")?.forEach {
                         menuDetail.ingredientList.add(it.getValue(String::class.java))
