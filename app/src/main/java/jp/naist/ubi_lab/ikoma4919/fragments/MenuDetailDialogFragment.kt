@@ -74,10 +74,15 @@ class MenuDetailDialogFragment(): DialogFragment(), FireBaseHelper.FireBaseEvent
         allergenGridAdapter?.resetList()
 
         tvMenuNameSelected?.text = menuDetail.menuName
-        menuDetail.allergenList.forEach {
-            if(it != UNKNOWN) {
-                allergenGridAdapter?.addItem(Allergen(it))
+
+        if(menuDetail.allergenList.size > 0) {
+            menuDetail.allergenList.forEach {
+                if (it != UNKNOWN) {
+                    allergenGridAdapter?.addItem(Allergen(it))
+                }
             }
+        } else {
+            allergenGridAdapter?.addItem(Allergen(EMPTY))
         }
         allergenGridAdapter?.notifyDataSetChanged()
 

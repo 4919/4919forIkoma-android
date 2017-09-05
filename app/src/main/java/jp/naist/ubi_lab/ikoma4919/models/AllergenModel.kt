@@ -12,6 +12,7 @@ import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.AllergenCategory.*
 class AllergenModel {
 
     enum class AllergenCategory {
+        EMPTY,
         UNKNOWN,
         // 7 allergens
         SHRIMP,
@@ -40,7 +41,8 @@ class AllergenModel {
 
     private val allergenMap  = mapOf(
             PORK to arrayOf(R.string.constString_allergen_pork, R.mipmap.pic_allergen_pork),
-            WHEAT to arrayOf(R.string.constString_allergen_wheat, R.mipmap.ic_launcher)
+            WHEAT to arrayOf(R.string.constString_allergen_wheat, R.drawable.ic_empty),
+            EMPTY to arrayOf(R.string.constString_allergen_empty, R.drawable.ic_empty)
     )
 
     fun getAllergenCategory(context: Context, allergenStr: String): AllergenCategory {
