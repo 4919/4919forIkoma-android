@@ -12,7 +12,7 @@ import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.AllergenCategory.*
 class AllergenModel {
 
     enum class AllergenCategory {
-        UNDEFINED,
+        UNKNOWN,
         // 7 allergens
         SHRIMP,
         CRAB,
@@ -33,11 +33,9 @@ class AllergenModel {
         SQUID,       // イカ
     }
 
-    data class Allergen(val category: AllergenCategory, var allergenName: Int, var allergenIcon: Int) {
-        init {
-            allergenName = AllergenModel().allergenMap[category]?.get(0) ?: R.string.constString_allergen_unknown
-            allergenIcon = AllergenModel().allergenMap[category]?.get(1) ?: R.drawable.ic_empty
-        }
+    data class Allergen(private val category: AllergenCategory) {
+        var labelResourceId = AllergenModel().getAllergenLabelResourceId(category)
+        var iconResourceId = AllergenModel().getAllergenIconResourceId(category)
     }
 
     private val allergenMap  = mapOf(
@@ -51,9 +49,11 @@ class AllergenModel {
                 return it.key
             }
         }
-        return UNDEFINED
+        return UNKNOWN
     }
 
-    fun getAllergenIconResId(category: AllergenCategory): Int = allergenMap[category]?.get(1) ?: -1
+    fun getAllergenLabelResourceId(category: AllergenCategory): Int = allergenMap[category]?.get(0) ?: R.string.constString_allergen_unknown
+
+    fun getAllergenIconResourceId(category: AllergenCategory): Int = allergenMap[category]?.get(1) ?: R.drawable.ic_empty
 
 }

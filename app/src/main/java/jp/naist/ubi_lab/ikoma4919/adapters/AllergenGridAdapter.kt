@@ -16,8 +16,10 @@ import jp.naist.ubi_lab.ikoma4919.models.AllergenModel.*
  * アレルゲン の リストアダプタ
  * @author yuki-mat
  */
-class AllergenGridAdapter(private val context: Context, private val allergenList: List<Allergen>) : RecyclerView.Adapter<AllergenGridAdapter.ViewHolder>() {
+class AllergenGridAdapter(private val context: Context, private val allergenList: ArrayList<Allergen>) : RecyclerView.Adapter<AllergenGridAdapter.ViewHolder>() {
     private val TAG = "AllergenGridAdapter"
+
+    constructor(context: Context): this(context, ArrayList<Allergen>())
 
     private val mInflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
@@ -33,9 +35,18 @@ class AllergenGridAdapter(private val context: Context, private val allergenList
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = allergenList[position]
-        holder.ivAllergenIcon.setImageDrawable(ResourcesCompat.getDrawable(context.resources, item.allergenIcon, null))
-        holder.tvAllergenLabel.text = context.getString(item.allergenName)
+        holder.ivAllergenIcon.setImageDrawable(ResourcesCompat.getDrawable(context.resources, item.iconResourceId, null))
+        holder.tvAllergenLabel.text = context.getString(item.labelResourceId)
     }
 
     override fun getItemCount(): Int = allergenList.size
+
+    fun resetList() {
+        allergenList.clear()
+    }
+
+    fun addItem(allergen: Allergen) {
+        allergenList.add(allergen)
+    }
+
 }
