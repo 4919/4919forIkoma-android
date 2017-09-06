@@ -1,14 +1,12 @@
 package jp.naist.ubi_lab.ikoma4919.adapters
 
 import android.content.Context
-import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import jp.naist.ubi_lab.ikoma4919.R
-import jp.naist.ubi_lab.ikoma4919.models.AllergenModel
 
 /**
  * 食材 の リストアダプタ
