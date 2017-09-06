@@ -11,13 +11,17 @@
 
     <dimen name="marginWidth_toolbar">16dp</dimen>
     <dimen name="marginHeight_blackboard">8dp</dimen>
-    <dimen name="marginWidth_clipboard">12dp</dimen>
 
     <dimen name="paddingHeight_blackboard">24dp</dimen>
     <dimen name="paddingWidth_blackboard">20dp</dimen>
 
-    <dimen name="paddingHeight_clipboard">12dp</dimen>
+    <dimen name="margin_clipboard">12dp</dimen>
+
+    <dimen name="paddingTop_clipboard">12dp</dimen>
+    <dimen name="paddingBottom_clipboard">16dp</dimen>
     <dimen name="paddingWidth_clipboard">32dp</dimen>
+
+    <dimen name="paddingBottom_clipboard_subTitle">6dp</dimen>
 
     <dimen name="paddingHeight_allergen">6dp</dimen>
 
