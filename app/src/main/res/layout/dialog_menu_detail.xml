@@ -41,7 +41,7 @@
             <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/paddingTop_clipboard"
+                android:layout_marginTop="@dimen/paddingTop_clipboard_scrollview"
                 android:fillViewport="true"
                 android:overScrollMode="never"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -49,18 +49,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/paddingTop_clipboard"
-                    android:layout_marginBottom="@dimen/paddingBottom_clipboard"
+                    android:paddingTop="@dimen/paddingTop_clipboard_scrollview"
+                    android:paddingBottom="@dimen/paddingBottom_clipboard_scrollview"
+                    android:paddingLeft="@dimen/paddingLeft_clipboard_scrollview"
+                    android:paddingRight="@dimen/paddingRight_clipboard_scrollview"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/paddingBottom_clipboard_subTitle"
                         android:gravity="center"
                         android:text="@string/constString_clipboardAllergen"
                         android:textColor="@color/fontColor_primary"
                         android:textSize="@dimen/fontSize_clipboardSubTitle"
                         android:textStyle="bold"/>
+
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv_allergen_list"
@@ -73,7 +77,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/paddingTop_clipboard"
+                        android:layout_marginTop="@dimen/paddingTop_clipboard_scrollview"
                         android:layout_marginBottom="@dimen/paddingBottom_clipboard_subTitle"
                         android:gravity="center"
                         android:text="@string/constString_clipboardIngredients"
@@ -85,7 +89,6 @@
                         android:id="@+id/rv_ingredient_list"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
-                        android:layout_marginBottom="@dimen/paddingBottom_clipboard"
                         android:clipToPadding="false"
                         android:fadingEdgeLength="0dp"
                         android:overScrollMode="never" />
